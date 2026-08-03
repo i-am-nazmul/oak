@@ -19,6 +19,7 @@ export default function Navbar() {
             src="/oak.jpeg" 
             alt="Creators Oak Logo" 
             fill
+            sizes="40px"
             className="object-cover"
           />
         </div>

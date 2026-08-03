@@ -52,6 +52,7 @@ export default function FooterCTA() {
               src="/oak.jpeg" 
               alt="Creators Oak" 
               fill
+              sizes="32px"
               className="object-cover"
             />
           </div>

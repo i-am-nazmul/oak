@@ -49,16 +49,16 @@ export default function Hero() {
           key={i}
           className="absolute w-4 h-4 rounded-full bg-gradient-to-tr from-gold to-yellow-200 shadow-[0_0_15px_#D4AF6A]"
           initial={{ 
-            x: Math.random() * 100 + "vw", 
-            y: Math.random() * 100 + "vh",
-            scale: Math.random() * 0.5 + 0.5
+            x: `${(i * 13.7) % 100}vw`, 
+            y: `${(i * 29.3) % 100}vh`,
+            scale: (i % 5) * 0.1 + 0.5
           }}
           animate={{
-            y: [null, Math.random() * -100 - 50],
+            y: [null, -((i * 17.5) % 50) - 50],
             opacity: [0.2, 1, 0.2]
           }}
           transition={{
-            duration: Math.random() * 10 + 10,
+            duration: (i % 10) + 10,
             repeat: Infinity,
             ease: "linear"
           }}
