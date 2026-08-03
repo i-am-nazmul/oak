@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+:root {
+  --background: #F3EFEA;
+  --foreground: #2A2A2A;
+  --gold: #D4AF6A;
+  --dark-green: #1B2E26;
+  --light-text: #EBE5DB;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-gold: var(--gold);
+  --color-dark-green: var(--dark-green);
+  --color-light-text: var(--light-text);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+html {
+  scroll-behavior: smooth;
+}
