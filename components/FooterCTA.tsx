@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function FooterCTA() {
   return (
-    <footer className="relative bg-dark-green text-light-text py-32 px-8 overflow-hidden rounded-t-[3rem] mt-24">
+    <footer className="relative bg-dark-green text-light-text py-20 md:py-32 px-4 md:px-8 overflow-hidden rounded-t-[2rem] md:rounded-t-[3rem] mt-16 md:mt-24">
       {/* Background Effects */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-gold/10 rounded-full blur-[100px]" />
@@ -25,11 +25,11 @@ export default function FooterCTA() {
           transition={{ duration: 0.6 }}
         >
           <p className="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-6">Premium Services</p>
-          <h2 className="text-5xl md:text-7xl font-playfair font-bold mb-8 leading-tight">
+          <h2 className="text-4xl md:text-7xl font-playfair font-bold mb-6 md:mb-8 leading-tight">
             Let&apos;s Build Something <br className="hidden md:block" />
             <span className="text-gold italic">Meaningful</span>
           </h2>
-          <p className="text-light-text/70 max-w-2xl mx-auto text-lg mb-12">
+          <p className="text-light-text/70 max-w-2xl mx-auto text-base md:text-lg mb-10 md:mb-12">
             You are one click away from transforming your brand&apos;s digital presence with elite creators and data-driven strategies.
           </p>
 
@@ -45,7 +45,7 @@ export default function FooterCTA() {
       </div>
 
       {/* Footer Bottom Links */}
-      <div className="max-w-7xl mx-auto relative z-10 mt-32 pt-8 border-t border-light-text/10 flex flex-col md:flex-row items-center justify-between">
+      <div className="max-w-7xl mx-auto relative z-10 mt-20 md:mt-32 pt-8 border-t border-light-text/10 flex flex-col md:flex-row items-center justify-between">
         <div className="flex items-center gap-2 mb-4 md:mb-0">
           <div className="w-8 h-8 relative rounded-full overflow-hidden bg-white">
             <Image 
@@ -59,7 +59,7 @@ export default function FooterCTA() {
           <span className="font-playfair text-xl font-bold">Creators Oak</span>
         </div>
         
-        <div className="flex items-center gap-6 text-sm text-light-text/60">
+        <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 text-sm text-light-text/60">
           <a href="#" className="hover:text-gold transition-colors">Privacy Policy</a>
           <a href="#" className="hover:text-gold transition-colors">Terms of Service</a>
           <a href="#" className="hover:text-gold transition-colors">Instagram</a>

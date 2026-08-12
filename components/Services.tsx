@@ -27,10 +27,10 @@ export default function Services() {
   ];
 
   return (
-    <section className="py-24 px-8 max-w-7xl mx-auto relative z-10">
-      <div className="flex items-center gap-4 mb-12">
-        <span className="text-gold font-playfair text-2xl">2</span>
-        <h2 className="text-4xl md:text-5xl font-playfair font-bold text-dark-green">Premium Services</h2>
+    <section className="py-16 md:py-24 px-4 md:px-8 max-w-7xl mx-auto relative z-10">
+      <div className="flex items-center gap-4 mb-8 md:mb-12">
+        <span className="text-gold font-playfair text-xl md:text-2xl">2</span>
+        <h2 className="text-3xl md:text-5xl font-playfair font-bold text-dark-green">Premium Services</h2>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
