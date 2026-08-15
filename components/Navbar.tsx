@@ -13,33 +13,32 @@ export default function Navbar() {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
-      className="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4 md:py-6 flex items-center justify-between bg-white/10 backdrop-blur-md border-b border-white/20"
+      className="absolute top-0 left-0 right-0 px-6 md:px-12 lg:px-20 py-4 md:py-6 flex items-center justify-between bg-transparent z-50"
     >
-      <div className="flex items-center gap-2">
-        <div className="relative w-8 h-8 md:w-10 md:h-10 rounded-full overflow-hidden flex items-center justify-center bg-white">
+      <div className="flex items-center gap-4">
+        <div className="relative w-20 h-20 md:w-28 md:h-28 flex items-center justify-center">
           <Image 
-            src="/oak.jpeg" 
-            alt="Creators Oak Logo" 
+            src="/goldentree.png" 
+            alt="Golden Tree Logo" 
             fill
-            sizes="(max-width: 768px) 32px, 40px"
-            className="object-cover"
+            sizes="(max-width: 768px) 80px, 112px"
+            className="object-contain"
           />
         </div>
-        <span className="font-playfair text-xl md:text-2xl font-bold text-foreground">Creators Oak</span>
+        <span className="font-serif text-xl md:text-2xl font-medium text-[#1a362d] tracking-widest uppercase">Creators Oak</span>
       </div>
 
-      <div className="hidden md:flex items-center gap-8 font-medium text-sm">
-        <Link href="#" className="hover:text-gold transition-colors">Home</Link>
-        <Link href="#" className="hover:text-gold transition-colors">Prospects</Link>
-        <Link href="#" className="hover:text-gold transition-colors">Marketeers</Link>
-        <Link href="#" className="hover:text-gold transition-colors">Trending & Building</Link>
-        <Link href="#" className="hover:text-gold transition-colors">Contact Us</Link>
-      </div>
+      <div className="hidden lg:flex items-center gap-12">
+        <div className="flex items-center gap-8 font-sans text-xl lg:text-2xl font-medium text-black">
+          <Link href="#" className="hover:text-[#dfb871] transition-colors tracking-wide">Home</Link>
+          <Link href="#" className="hover:text-[#dfb871] transition-colors tracking-wide">About Us</Link>
+          <Link href="#" className="hover:text-[#dfb871] transition-colors tracking-wide">Services</Link>
+          <Link href="#" className="hover:text-[#dfb871] transition-colors tracking-wide">For Creators</Link>
+          <Link href="#" className="hover:text-[#dfb871] transition-colors tracking-wide">For Brands</Link>
+        </div>
 
-      <div className="hidden md:flex items-center gap-6">
-        <Link href="#" className="font-medium text-sm hover:text-gold transition-colors">Log In</Link>
-        <Link href="#" className="bg-gold text-dark-green font-medium px-6 py-2.5 rounded-full hover:bg-gold/90 transition-colors shadow-lg">
-          Sign Up
+        <Link href="#" className="bg-[#1a362d] text-white font-sans text-2xl font-bold px-12 py-5 rounded-sm hover:bg-[#1a362d]/90 transition-colors shadow-sm">
+          Let's Connect
         </Link>
       </div>
 
@@ -47,7 +46,7 @@ export default function Navbar() {
       <div className="md:hidden flex items-center">
         <button 
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="text-foreground p-2 focus:outline-none"
+          className="text-dark-green p-2 focus:outline-none"
           aria-label="Toggle Menu"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -69,17 +68,16 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             className="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md border-b border-gray-200 overflow-hidden md:hidden shadow-xl"
           >
-            <div className="flex flex-col px-6 py-6 gap-6 font-medium text-base">
-              <Link href="#" className="hover:text-gold transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
-              <Link href="#" className="hover:text-gold transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Prospects</Link>
-              <Link href="#" className="hover:text-gold transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Marketeers</Link>
-              <Link href="#" className="hover:text-gold transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Trending & Building</Link>
-              <Link href="#" className="hover:text-gold transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</Link>
+            <div className="flex flex-col px-6 py-6 gap-6 font-medium text-lg">
+              <Link href="#" className="text-[#1a362d] hover:text-[#dfb871] transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
+              <Link href="#" className="text-[#1a362d] hover:text-[#dfb871] transition-colors" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link>
+              <Link href="#" className="text-[#1a362d] hover:text-[#dfb871] transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Services</Link>
+              <Link href="#" className="text-[#1a362d] hover:text-[#dfb871] transition-colors" onClick={() => setIsMobileMenuOpen(false)}>For Creators</Link>
+              <Link href="#" className="text-[#1a362d] hover:text-[#dfb871] transition-colors" onClick={() => setIsMobileMenuOpen(false)}>For Brands</Link>
               
               <div className="flex flex-col gap-4 mt-4 border-t border-gray-100 pt-6">
-                <Link href="#" className="text-center font-medium hover:text-gold transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Log In</Link>
-                <Link href="#" className="text-center bg-gold text-dark-green font-medium px-6 py-3 rounded-full hover:bg-gold/90 transition-colors shadow-lg" onClick={() => setIsMobileMenuOpen(false)}>
-                  Sign Up
+                <Link href="#" className="text-center bg-[#1a362d] text-white font-medium text-lg px-6 py-4 rounded-sm hover:bg-[#1a362d]/90 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                  Let's Connect
                 </Link>
               </div>
             </div>

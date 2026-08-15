@@ -58,7 +58,7 @@ export default function WelcomePopup() {
 
             <div className="text-center mb-8">
               <span className="text-gold font-playfair text-xl mb-2 block">Welcome</span>
-              <h2 className="text-3xl font-playfair font-bold text-dark-green">Are you a creator or a business?</h2>
+              <h2 className="text-3xl font-playfair font-bold text-dark-green">Are you a creator or a businessman?</h2>
             </div>
 
             <div className="space-y-4">
@@ -66,13 +66,13 @@ export default function WelcomePopup() {
                 onClick={() => handleSelection("creator")}
                 className="w-full py-4 px-6 rounded-xl border-2 border-dark-green text-dark-green font-semibold text-lg hover:bg-dark-green hover:text-white transition-all duration-300 transform hover:-translate-y-1"
               >
-                Creative
+                Creator
               </button>
               <button
                 onClick={() => handleSelection("business")}
                 className="w-full py-4 px-6 rounded-xl bg-dark-green text-white font-semibold text-lg hover:bg-dark-green/90 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1"
               >
-                Business
+                Businessman
               </button>
             </div>
           </motion.div>
