@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Users, Handshake, TrendingUp, ArrowRight } from "lucide-react";
 
-export default function Hero() {
+export default function HeroSection1() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       <video
