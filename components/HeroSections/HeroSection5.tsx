@@ -38,20 +38,20 @@ const slides = [
 export default function HeroSection5() {
   return (
     <section className="bg-black py-24 md:py-40 px-4 md:px-8 relative z-10">
-      <div className="max-w-6xl mx-auto flex flex-col pb-[30vh]">
+      <div className="max-w-6xl mx-auto flex flex-col pb-[15vh]">
         {slides.map((slide, index) => (
           <div 
             key={slide.id}
             className="sticky w-full bg-black border-[1.5px] border-white rounded-2xl shadow-2xl flex flex-col justify-start mb-32 last:mb-0 transition-all duration-300"
             style={{ 
-              top: `calc(15vh + ${index * 1.5}rem)`,
+              top: `calc(10vh + ${index * 4.5}rem)`,
               height: '70vh',
               minHeight: '500px',
               zIndex: index,
             }}
           >
-            <div className="p-8 md:p-12 flex-grow flex flex-col">
-              <h3 className="text-2xl md:text-3xl font-bold text-white text-center mb-10 tracking-wide">
+            <div className="pt-6 px-8 md:px-12 pb-8 flex-grow flex flex-col">
+              <h3 className="text-2xl md:text-3xl font-bold text-white text-center mb-6 tracking-wide">
                 {slide.title}
               </h3>
               
