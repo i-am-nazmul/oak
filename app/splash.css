@@ -1,0 +1,174 @@
+/* =============================================
+   SPLASH SCREEN — Intro animation overlay
+   ============================================= */
+
+.splash-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Radial ambient glow behind the tree */
+.splash-ambient-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(212, 175, 106, 0.4) 0%,
+    rgba(180, 140, 60, 0.15) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+  will-change: opacity, transform;
+}
+
+@media (min-width: 640px) {
+  .splash-ambient-glow {
+    width: 800px;
+    height: 800px;
+  }
+}
+
+/* Pulsing ring glow that expands outward */
+.splash-ring-glow {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  border: 2px solid rgba(212, 175, 106, 0.3);
+  box-shadow:
+    0 0 40px 10px rgba(212, 175, 106, 0.15),
+    inset 0 0 40px 10px rgba(212, 175, 106, 0.08);
+  pointer-events: none;
+}
+
+@media (min-width: 640px) {
+  .splash-ring-glow {
+    width: 450px;
+    height: 450px;
+  }
+}
+
+/* Tree wrapper — centres tree + glow layer */
+.splash-tree-wrapper {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: opacity, transform;
+}
+
+@media (min-width: 640px) {
+  .splash-tree-wrapper {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+/*
+ * Main tree image.
+ * mask-image vignettes the white PNG background into the black overlay.
+ * drop-shadow produces the golden border glow.
+ */
+.splash-tree-img {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mask-image: radial-gradient(
+    ellipse 68% 68% at 50% 48%,
+    black 45%,
+    transparent 75%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 68% 68% at 50% 48%,
+    black 45%,
+    transparent 75%
+  );
+  filter:
+    drop-shadow(0 0 18px rgba(212, 175, 106, 0.6))
+    drop-shadow(0 0 50px rgba(212, 175, 106, 0.25));
+}
+
+/* Blurred copy of the tree — creates a soft golden halo */
+.splash-tree-glow {
+  position: absolute;
+  inset: -40px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: opacity;
+}
+
+.splash-tree-glow-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: blur(30px) brightness(1.4) saturate(1.6);
+  mask-image: radial-gradient(
+    ellipse 60% 60% at 50% 48%,
+    black 30%,
+    transparent 68%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 60% 60% at 50% 48%,
+    black 30%,
+    transparent 68%
+  );
+  opacity: 0.75;
+}
+
+/* Floating golden particles */
+.splash-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.splash-particle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(212, 175, 106, 1) 0%,
+    rgba(212, 175, 106, 0) 70%
+  );
+  will-change: opacity, transform;
+}
+
+/* Brand text below the tree */
+.splash-brand-text {
+  position: relative;
+  z-index: 4;
+  margin-top: 20px;
+  font-family: var(--font-playfair), serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.18em;
+  color: rgba(212, 175, 106, 0.9);
+  text-transform: uppercase;
+  text-shadow:
+    0 0 20px rgba(212, 175, 106, 0.4),
+    0 0 40px rgba(212, 175, 106, 0.15);
+  will-change: opacity, transform;
+}
+
+@media (min-width: 640px) {
+  .splash-brand-text {
+    font-size: 1.7rem;
+    margin-top: 28px;
+    letter-spacing: 0.22em;
+  }
+}

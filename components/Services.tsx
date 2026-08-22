@@ -39,7 +39,7 @@ export default function Services() {
             key={idx}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.1 }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ delay: idx * 0.1, duration: 0.6 }}
             className="bg-white/40 backdrop-blur-md border border-white/60 p-8 rounded-3xl hover:bg-white/60 transition-all duration-300 shadow-xl shadow-dark-green/5 group"
           >

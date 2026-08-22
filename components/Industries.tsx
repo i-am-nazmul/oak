@@ -39,7 +39,7 @@ export default function Industries() {
             key={idx}
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: false, amount: 0.1 }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ delay: idx * 0.1, duration: 0.5 }}
             className="flex flex-col bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
           >

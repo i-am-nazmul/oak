@@ -18,7 +18,7 @@ export default function Stats() {
               key={idx}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.1 }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={{ delay: idx * 0.2, duration: 0.8 }}
             >
               <h3 className="text-3xl md:text-5xl font-bold font-playfair text-dark-green mb-2">{stat.value}</h3>
