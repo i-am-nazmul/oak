@@ -5,19 +5,20 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
 const images = [
-  "/pics/ahmetyuksek-autumn-bend-10069119_1920.jpg",
-  "/pics/akositim-sunset-10415017_1920.jpg",
-  "/pics/amaurydeterwangne-stag-5393082.jpg",
-  "/pics/apyfz-mosque-9274758_1920.jpg",
-  "/pics/bayarts7-indonesia-10405443_1920.jpg",
-  "/pics/dianaparkhouse-mist-4551691.jpg",
-  "/pics/marilari-insect-8340649_1920.jpg",
-  "/pics/susnpics-hill-5324149_1920.jpg",
-  "/pics/tama66-river-4336788_1920.jpg",
-  "/pics/thegermankid-poppies-5392907_1920.jpg",
-  "/pics/wolfgang_hasselmann-sunset-10424010_1920.jpg",
-  "/pics/ylanite_nietjuhart-flower-10331620_1920.jpg",
-  "/pics/ymyphoto-plum-blossoms-8579641_1920.jpg"
+  "/hero_section_3_pics/1.png",
+  "/hero_section_3_pics/2.png",
+  "/hero_section_3_pics/3.png",
+  "/hero_section_3_pics/4.png",
+  "/hero_section_3_pics/5.png",
+  "/hero_section_3_pics/6.png",
+  "/hero_section_3_pics/7.png",
+  "/hero_section_3_pics/8.png",
+  "/hero_section_3_pics/9.png",
+  "/hero_section_3_pics/10.png",
+  "/hero_section_3_pics/11.png",
+  "/hero_section_3_pics/12.png",
+  "/hero_section_3_pics/13.png",
+  "/hero_section_3_pics/14.png"
 ];
 
 type TrailImage = {
@@ -43,8 +44,8 @@ export default function HeroSection3() {
       const dy = y - lastPointRef.current.y;
       const distance = Math.sqrt(dx * dx + dy * dy);
       
-      // Only spawn a new image if moved significantly (at least 250px) from the last one
-      if (distance < 250) return;
+      // Only spawn a new image if moved significantly (at least 100px) from the last one
+      if (distance < 100) return;
     }
 
     lastPointRef.current = { x, y };
@@ -65,14 +66,17 @@ export default function HeroSection3() {
 
   return (
     <section 
-      className="relative min-h-screen bg-[#1a362d] overflow-hidden flex flex-col items-center justify-center cursor-crosshair"
+      className="relative min-h-screen bg-black overflow-hidden flex flex-col items-center justify-center cursor-crosshair"
       onMouseMove={handleMouseMove}
     >
       {/* Background instruction text */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-        <h2 className="text-4xl md:text-6xl lg:text-[5rem] font-serif text-white/20 select-none text-center leading-tight">
-          Hover to Reveal <br /> Our Works
+      <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
+        <h2 className="text-4xl md:text-6xl lg:text-[5rem] font-serif text-white/20 select-none text-center leading-tight max-w-5xl px-4">
+          Explore the ideas we’ve grown into reality.
         </h2>
+        <p className="mt-6 text-white/40 text-sm md:text-base font-sans select-none tracking-widest uppercase">
+          Move your cursor to explore.
+        </p>
       </div>
 
       {/* Render the trailing images */}

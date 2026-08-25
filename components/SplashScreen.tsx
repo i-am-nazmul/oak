@@ -20,6 +20,7 @@ export default function SplashScreen({
   // Auto-play the video once mounted
   useEffect(() => {
     if (!hasMounted || !videoRef.current) return;
+    videoRef.current.playbackRate = 1.2;
     // Attempt autoplay (muted is required for autoplay in most browsers)
     videoRef.current.play().catch(() => {
       // If autoplay fails (e.g. browser policy), skip the intro
@@ -54,7 +55,7 @@ export default function SplashScreen({
     >
       <video
         ref={videoRef}
-        src="/intro.mp4"
+        src="/newIntro.mp4"
         muted
         playsInline
         onEnded={handleVideoEnd}

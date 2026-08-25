@@ -11,7 +11,6 @@ import HeroSection6 from "@/components/HeroSections/HeroSection6";
 import HeroSection7 from "@/components/HeroSections/HeroSection7";
 import HeroSection8 from "@/components/HeroSections/HeroSection8";
 import FooterCTA from "@/components/FooterCTA";
-import WelcomePopup from "@/components/WelcomePopup";
 import ScrollToTop from "@/components/ScrollToTop";
 import SplashScreen from "@/components/SplashScreen";
 
@@ -36,7 +35,6 @@ export default function Home() {
       >
         <ScrollToTop />
         <Navbar />
-        {splashDone && <WelcomePopup />}
         <main>
           <HeroSection1 />
           <HeroSection2 />
