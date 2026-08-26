@@ -60,7 +60,7 @@ export default function HeroSection6() {
         className="text-center mb-6 sm:mb-10 px-4 sm:px-6 flex flex-col items-center"
       >
         <motion.div variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } } }}>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#1a362d] mb-3 sm:mb-4">Client&apos;s Perspective</h2>
+          <h2 className="text-4xl sm:text-5xl md:text-7xl font-serif text-[#1a362d] mb-3 sm:mb-4">Client&apos;s Perspective</h2>
         </motion.div>
         <motion.div variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } } }}>
           <p className="text-[#1a362d]/70 max-w-2xl mx-auto text-sm sm:text-lg">Don&apos;t just take our word for it. Here is what our amazing partners have to say.</p>
