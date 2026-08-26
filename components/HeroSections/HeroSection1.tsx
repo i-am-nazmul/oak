@@ -1,58 +1,88 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
+import { useEffect, useRef } from "react";
 
 export default function HeroSection1() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 1.2;
+    }
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       <video
+        ref={videoRef}
         autoPlay
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover object-top -z-10"
+        className="absolute inset-0 w-full h-full object-cover object-[15%_top] -z-10"
       >
-        <source src="/bg.mp4" type="video/mp4" />
+        <source src="/newbg.mp4" type="video/mp4" />
       </video>
 
-      {/* Gradient overlay - bright white on the left, completely transparent on the right */}
-      <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/70 via-30% to-transparent to-60% -z-10" />
+      {/* Gradient overlay - smooth black fade on the left */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 via-30% to-transparent to-60% -z-10" />
+
+      {/* Extra dark overlay on mobile for readability */}
+      <div className="absolute inset-0 bg-black/30 md:bg-transparent -z-10" />
+
+      {/* Gradient overlay - bottom fade to blend with next section */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent via-[80%] to-black -z-10" />
 
       {/* Content Container */}
-      <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 xl:px-20 relative z-10 mt-24 md:mt-32 lg:mt-40">
+      <div className="w-full max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12 lg:px-16 xl:px-20 relative z-10 mt-24 sm:mt-20 md:mt-20 lg:mt-28">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-4xl space-y-5"
+          className="max-w-4xl space-y-4 sm:space-y-5"
         >
           {/* Heading */}
-          <h1 className="text-5xl md:text-6xl lg:text-[4.5rem] xl:text-[5rem] font-serif tracking-wide leading-none text-[#1a362d]">
-            CREATORS <span className="text-[#dfb871]">OAK</span>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] xl:text-[5rem] font-serif tracking-wide leading-none text-white">
+            CREATORS <span className="text-[#F2C94C] [text-shadow:0_0_30px_rgba(242,201,76,0.8),0_0_10px_rgba(242,201,76,0.5)]">OAK</span>
           </h1>
 
           {/* Subheading */}
-          <h2 className="text-2xl md:text-3xl lg:text-[2.75rem] font-serif text-black leading-[1.15]">
-            Curating Creators.<br />
-            Growing Brands.
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-[2.75rem] font-serif text-white/90 leading-[1.15]">
+            Curating Creators. Growing Brands.
           </h2>
 
           {/* Description */}
-          <p className="text-gray-800 max-w-lg text-sm md:text-base leading-relaxed pt-2 font-medium">
+          <p className="text-gray-300 max-w-lg text-sm md:text-base leading-relaxed pt-1 sm:pt-2 font-medium">
             We connect visionary creators with ambitious brands<br className="hidden md:block" />
             to build stories that inspire, engage and grow.
           </p>
 
           {/* CTA Button */}
-          <div className="pt-4">
-            <button className="group flex items-center gap-3 px-6 py-3 lg:px-8 lg:py-4 border border-[#1a362d] bg-[#1a362d] hover:bg-[#1a362d]/90 transition-all duration-300 text-xs md:text-sm tracking-wider text-white">
+          <div className="pt-3 sm:pt-4">
+            <button className="group flex items-center gap-3 px-5 py-3 sm:px-6 lg:px-8 lg:py-4 border border-white/30 bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-all duration-300 text-xs sm:text-sm tracking-wider text-white">
               Let's Grow Together
               <ArrowRight className="w-4 h-4 text-white/70 group-hover:translate-x-1 transition-transform" strokeWidth={1.5} />
             </button>
           </div>
         </motion.div>
       </div>
+
+      {/* Scroll Down Arrow */}
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 10 }}
+        transition={{ 
+          duration: 1.5, 
+          repeat: Infinity, 
+          repeatType: "reverse",
+          ease: "easeInOut"
+        }}
+        className="absolute bottom-8 sm:bottom-10 left-1/2 -translate-x-1/2 z-20 cursor-pointer"
+      >
+        <ChevronDown className="w-8 h-8 sm:w-10 sm:h-10 text-white/90" strokeWidth={1.5} />
+      </motion.div>
     </section>
   );
 }

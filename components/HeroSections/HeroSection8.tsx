@@ -62,7 +62,7 @@ function AnimatedCounter({ target, suffix, inView }: { target: number; suffix: s
   }, [inView, target]);
 
   return (
-    <span className="text-5xl md:text-6xl font-black text-white tabular-nums">
+    <span className="text-3xl sm:text-5xl md:text-6xl font-black text-white tabular-nums">
       {count}
       <span className="text-white/80">{suffix}</span>
     </span>
@@ -76,7 +76,7 @@ export default function HeroSection8() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-24 md:py-36 px-6 md:px-12"
+      className="relative py-16 sm:py-24 md:py-36 px-4 sm:px-6 md:px-12 rounded-b-2xl sm:rounded-b-3xl md:rounded-b-[3rem] overflow-hidden"
       style={{ background: "linear-gradient(180deg, #050505 0%, #0a0f1a 50%, #050505 100%)" }}
     >
       {/* Header */}
@@ -85,24 +85,24 @@ export default function HeroSection8() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="text-center mb-16 md:mb-20"
+        className="text-center mb-10 sm:mb-16 md:mb-20"
       >
-        <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-white/70 text-sm mb-6">
-          <svg className="w-4 h-4 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
+        <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-white/10 bg-white/5 text-white/70 text-xs sm:text-sm mb-4 sm:mb-6">
+          <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
             <path d="M12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2Z" />
           </svg>
           Our Impact
         </span>
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-4">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-3 sm:mb-4">
           Driving <em className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Results</em> That Matter
         </h2>
-        <p className="text-white/50 max-w-xl mx-auto text-base md:text-lg">
+        <p className="text-white/50 max-w-xl mx-auto text-sm sm:text-base md:text-lg px-2">
           Numbers don&apos;t lie. See how our expertise translates into measurable success for our clients.
         </p>
       </motion.div>
 
       {/* Stats Grid */}
-      <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+      <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
         {stats.map((stat, index) => (
           <motion.div
             key={stat.id}
@@ -110,7 +110,7 @@ export default function HeroSection8() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.15 }}
-            className="relative group rounded-2xl p-6 md:p-8 text-center flex flex-col items-center gap-3 overflow-hidden"
+            className="relative group rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 text-center flex flex-col items-center gap-2 sm:gap-3 overflow-hidden"
             style={{
               background: "linear-gradient(145deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%)",
               border: "1px solid rgba(255,255,255,0.06)",
@@ -127,8 +127,8 @@ export default function HeroSection8() {
             <div className="relative z-10">
               <AnimatedCounter target={stat.value} suffix={stat.suffix} inView={isInView} />
             </div>
-            <h3 className="relative z-10 text-white font-bold text-sm md:text-base">{stat.label}</h3>
-            <p className="relative z-10 text-white/40 text-xs md:text-sm leading-relaxed">{stat.description}</p>
+            <h3 className="relative z-10 text-white font-bold text-xs sm:text-sm md:text-base">{stat.label}</h3>
+            <p className="relative z-10 text-white/40 text-[10px] sm:text-xs md:text-sm leading-relaxed">{stat.description}</p>
 
             {/* Accent bar */}
             <motion.div
@@ -136,7 +136,7 @@ export default function HeroSection8() {
               whileInView={{ width: 40 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.5 + index * 0.15 }}
-              className="h-[3px] rounded-full mt-2"
+              className="h-[2px] sm:h-[3px] rounded-full mt-1 sm:mt-2"
               style={{ backgroundColor: stat.accentColor }}
             />
           </motion.div>

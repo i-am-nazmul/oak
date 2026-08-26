@@ -55,7 +55,7 @@ export default function SplashScreen({
     >
       <video
         ref={videoRef}
-        src="/newIntro.mp4"
+        src="/newintro.mp4"
         muted
         playsInline
         onEnded={handleVideoEnd}

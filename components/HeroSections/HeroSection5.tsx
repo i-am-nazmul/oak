@@ -37,7 +37,7 @@ const slides = [
 
 export default function HeroSection5() {
   return (
-    <section className="bg-black py-24 md:py-40 px-4 md:px-8 relative z-10">
+    <section className="bg-black py-16 sm:py-24 md:py-40 px-4 sm:px-6 md:px-8 relative z-10">
       {/* Bubble keyframes */}
       <style jsx>{`
         @keyframes float-bubble {
@@ -55,15 +55,15 @@ export default function HeroSection5() {
         }
       `}</style>
 
-      <div className="max-w-6xl mx-auto flex flex-col pb-[15vh]">
+      <div className="max-w-6xl mx-auto flex flex-col pb-[10vh] sm:pb-[15vh]">
         {slides.map((slide, index) => (
           <div 
             key={slide.id}
-            className="sticky w-full bg-black border-[1.5px] border-white rounded-2xl shadow-2xl flex flex-col justify-start mb-32 last:mb-0 transition-all duration-300 overflow-hidden"
+            className="sticky w-full bg-black border border-white/30 sm:border-[1.5px] sm:border-white rounded-xl sm:rounded-2xl shadow-2xl flex flex-col justify-start mb-20 sm:mb-32 last:mb-0 transition-all duration-300 overflow-hidden"
             style={{ 
-              top: `calc(10vh + ${index * 4.5}rem)`,
-              height: '70vh',
-              minHeight: '500px',
+              top: `calc(8vh + ${index * 3}rem)`,
+              height: 'clamp(400px, 65vh, 600px)',
+              minHeight: '380px',
               zIndex: index,
             }}
           >
@@ -87,31 +87,21 @@ export default function HeroSection5() {
               ))}
             </div>
 
-            <div className="pt-8 px-8 md:px-12 pb-8 flex-grow flex flex-col relative z-10">
+            <div className="pt-6 px-5 sm:pt-8 sm:px-8 md:px-12 pb-6 sm:pb-8 flex-grow flex flex-col relative z-10">
               <h3 
-                className="text-3xl md:text-5xl lg:text-6xl font-mono font-bold text-[#dfb871] text-center mb-8 tracking-tighter"
-                style={{ textShadow: "0 0 15px rgba(223, 184, 113, 0.5)" }}
+                className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-mono font-bold text-white text-center mb-5 sm:mb-8 tracking-tighter"
               >
                 {slide.title}
               </h3>
               
-              <div className="flex flex-col md:flex-row items-start gap-10 md:gap-16 flex-grow">
-                <div className="md:w-5/12 mt-4 md:mt-8 relative">
-                  {/* Dim Golden Tree Background */}
-                  <div className="absolute inset-0 z-0 opacity-35 pointer-events-none flex items-center justify-center">
-                    <Image 
-                      src="/goldentree.png"
-                      alt="Golden Tree Background"
-                      fill
-                      className="object-contain scale-110"
-                    />
-                  </div>
-                  <p className="text-xl md:text-2xl lg:text-3xl text-white/80 leading-relaxed relative z-10">
+              <div className="flex flex-col md:flex-row items-start gap-6 sm:gap-10 md:gap-16 flex-grow">
+                <div className="md:w-5/12 mt-2 sm:mt-4 md:mt-8 relative">
+                  <p className="text-base sm:text-xl md:text-2xl lg:text-3xl text-white/80 leading-relaxed relative z-10">
                     {slide.description}
                   </p>
                 </div>
                 
-                <div className="md:w-6/12 w-full h-[220px] md:h-[85%] relative rounded border border-white/20 overflow-hidden shadow-[0_0_30px_rgba(255,255,255,0.05)]">
+                <div className="md:w-6/12 w-full h-[180px] sm:h-[220px] md:h-[85%] relative rounded border border-white/20 overflow-hidden shadow-[0_0_30px_rgba(255,255,255,0.05)]">
                   <Image 
                     src={slide.image} 
                     alt={slide.title} 
@@ -124,6 +114,8 @@ export default function HeroSection5() {
           </div>
         ))}
       </div>
+      {/* Gradient fade to blend into the golden background of HeroSection6 */}
+      <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-b from-transparent to-[#dfb871] pointer-events-none z-20" />
     </section>
   );
 }
