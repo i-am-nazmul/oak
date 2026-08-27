@@ -29,18 +29,18 @@ const StarRating = ({ rating = 5 }: { rating?: number }) => (
 );
 
 const ReviewCard = ({ review }: { review: any }) => (
-  <div className="w-[280px] sm:w-[350px] md:w-[450px] bg-[#050505] p-5 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl shadow-xl border border-white/10 flex-shrink-0 mx-3 sm:mx-4 whitespace-normal">
+  <div className="w-[280px] sm:w-[350px] md:w-[450px] bg-white p-5 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl shadow-xl border border-black/10 flex-shrink-0 mx-3 sm:mx-4 whitespace-normal">
     <StarRating rating={review.rating} />
-    <p className="text-white/90 text-sm sm:text-base md:text-lg font-medium mb-5 sm:mb-8 leading-relaxed min-h-[80px] sm:min-h-[100px] md:min-h-[120px]">
+    <p className="text-black/90 text-sm sm:text-base md:text-lg font-medium mb-5 sm:mb-8 leading-relaxed min-h-[80px] sm:min-h-[100px] md:min-h-[120px]">
       &quot;{review.review}&quot;
     </p>
-    <div className="flex items-center gap-3 sm:gap-4 border-t border-white/10 pt-4 sm:pt-6">
-      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 flex items-center justify-center text-white font-bold text-lg sm:text-xl flex-shrink-0">
+    <div className="flex items-center gap-3 sm:gap-4 border-t border-black/10 pt-4 sm:pt-6">
+      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#dfb871] flex items-center justify-center text-black font-bold text-lg sm:text-xl flex-shrink-0">
         {review.name[0]}
       </div>
       <div className="min-w-0">
-        <h4 className="font-bold text-white text-sm sm:text-base truncate">{review.name}</h4>
-        <p className="text-xs sm:text-sm text-white/60 truncate">{review.company}</p>
+        <h4 className="font-bold text-black text-sm sm:text-base truncate">{review.name}</h4>
+        <p className="text-xs sm:text-sm text-black/60 truncate">{review.company}</p>
       </div>
     </div>
   </div>
@@ -48,7 +48,7 @@ const ReviewCard = ({ review }: { review: any }) => (
 
 export default function HeroSection6() {
   return (
-    <section className="relative py-16 sm:py-24 md:py-32 bg-[#dfb871] overflow-hidden flex flex-col justify-center min-h-[60vh] sm:min-h-[70vh] gap-8 sm:gap-12">
+    <section className="relative py-16 sm:py-24 md:py-32 bg-[#050505] overflow-hidden flex flex-col justify-center min-h-[60vh] sm:min-h-[70vh] gap-8 sm:gap-12">
       
       <motion.div 
         initial="hidden"
@@ -60,10 +60,10 @@ export default function HeroSection6() {
         className="text-center mb-6 sm:mb-10 px-4 sm:px-6 flex flex-col items-center"
       >
         <motion.div variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } } }}>
-          <h2 className="text-4xl sm:text-5xl md:text-7xl font-serif text-[#1a362d] mb-3 sm:mb-4">Client&apos;s Perspective</h2>
+          <h2 className="text-4xl sm:text-5xl md:text-7xl font-serif text-white mb-3 sm:mb-4">Client&apos;s Perspective</h2>
         </motion.div>
         <motion.div variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } } }}>
-          <p className="text-[#1a362d]/70 max-w-2xl mx-auto text-sm sm:text-lg">Don&apos;t just take our word for it. Here is what our amazing partners have to say.</p>
+          <p className="text-white/70 max-w-2xl mx-auto text-sm sm:text-lg">Don&apos;t just take our word for it. Here is what our amazing partners have to say.</p>
         </motion.div>
       </motion.div>
 

@@ -1,9 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
-const brandsRow1 = ["ACME CORP", "GLOBEX", "SOYLENT", "INITECH", "UMBRELLA", "STARK", "WAYNE", "CYBERDYNE"];
-const brandsRow2 = ["VOGUE", "CHANEL", "SUPREME", "OFF-WHITE", "BALENCIAGA", "GUCCI", "PRADA", "ROLEX"];
+const brandsRow1 = [
+  "/brands_logo/1. amazon logo.png",
+  "/brands_logo/2. sunsilk logo.png",
+  "/brands_logo/3. philips.png",
+  "/brands_logo/4. bru.png",
+  "/brands_logo/5. zomato.png",
+];
+
+const brandsRow2 = [
+  "/brands_logo/6. master chow.png",
+  "/brands_logo/7. milk basket.png",
+  "/brands_logo/8. urban platter.png",
+  "/brands_logo/9. vogue.svg",
+  "/brands_logo/10. disano.png",
+];
 
 export default function HeroSection2() {
   return (
@@ -50,12 +64,18 @@ export default function HeroSection2() {
         className="relative flex whitespace-nowrap overflow-hidden py-2 sm:py-4 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]"
       >
         <div
-          className="flex w-max gap-8 sm:gap-16 md:gap-32 pr-8 sm:pr-16 md:pr-32 items-center animate-marquee-left pause-on-hover"
+          className="flex w-max gap-12 sm:gap-20 md:gap-32 pr-12 sm:pr-20 md:pr-32 items-center animate-marquee-left pause-on-hover"
         >
-          {[...brandsRow1, ...brandsRow1].map((brand, i) => (
-            <span key={i} className="text-3xl sm:text-5xl md:text-7xl font-bold text-transparent" style={{ WebkitTextStroke: "1.5px rgba(255,255,255,0.5)" }}>
-              {brand}
-            </span>
+          {[...brandsRow1, ...brandsRow1, ...brandsRow1].map((logoSrc, i) => (
+            <div key={i} className="relative w-32 sm:w-40 md:w-48 h-12 sm:h-16 md:h-20">
+              <Image 
+                src={logoSrc}
+                alt="Brand Logo"
+                fill
+                className="object-contain hover:scale-105 transition-transform duration-300"
+                sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, 192px"
+              />
+            </div>
           ))}
         </div>
       </motion.div>
@@ -69,12 +89,18 @@ export default function HeroSection2() {
         className="relative flex whitespace-nowrap overflow-hidden py-2 sm:py-4 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]"
       >
         <div
-          className="flex w-max gap-8 sm:gap-16 md:gap-32 pr-8 sm:pr-16 md:pr-32 items-center animate-marquee-right pause-on-hover"
+          className="flex w-max gap-12 sm:gap-20 md:gap-32 pr-12 sm:pr-20 md:pr-32 items-center animate-marquee-right pause-on-hover"
         >
-          {[...brandsRow2, ...brandsRow2].map((brand, i) => (
-            <span key={i} className="text-3xl sm:text-5xl md:text-7xl font-bold text-white/10">
-              {brand}
-            </span>
+          {[...brandsRow2, ...brandsRow2, ...brandsRow2].map((logoSrc, i) => (
+            <div key={i} className="relative w-32 sm:w-40 md:w-48 h-12 sm:h-16 md:h-20">
+              <Image 
+                src={logoSrc}
+                alt="Brand Logo"
+                fill
+                className="object-contain hover:scale-105 transition-transform duration-300"
+                sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, 192px"
+              />
+            </div>
           ))}
         </div>
       </motion.div>

@@ -146,7 +146,7 @@ export default function HeroSection4() {
           <div className="flex flex-col items-center">
             <h2 className="text-3xl sm:text-4xl md:text-6xl font-serif text-white mb-3 sm:mb-4 leading-tight">
               WHAT WE<br />
-              Create FOR YOU
+              <span className="text-[#dfb871]">Create</span> FOR YOU
             </h2>
             <p className="text-white/70 max-w-xl text-sm sm:text-lg mx-auto">Transform your digital presence with our comprehensive suite of professional services</p>
           </div>

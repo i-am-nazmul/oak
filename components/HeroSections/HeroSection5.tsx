@@ -62,8 +62,7 @@ export default function HeroSection5() {
             className="sticky w-full bg-black border border-white/30 sm:border-[1.5px] sm:border-white rounded-xl sm:rounded-2xl shadow-2xl flex flex-col justify-start mb-20 sm:mb-32 last:mb-0 transition-all duration-300 overflow-hidden"
             style={{ 
               top: `calc(8vh + ${index * 3}rem)`,
-              height: 'clamp(400px, 65vh, 600px)',
-              minHeight: '380px',
+              minHeight: 'clamp(400px, 65vh, 600px)',
               zIndex: index,
             }}
           >
@@ -89,19 +88,19 @@ export default function HeroSection5() {
 
             <div className="pt-6 px-5 sm:pt-8 sm:px-8 md:px-12 pb-6 sm:pb-8 flex-grow flex flex-col relative z-10">
               <h3 
-                className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-mono font-bold text-white text-center mb-5 sm:mb-8 tracking-tighter"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif text-white text-center mb-5 sm:mb-8"
               >
                 {slide.title}
               </h3>
               
-              <div className="flex flex-col md:flex-row items-start gap-6 sm:gap-10 md:gap-16 flex-grow">
-                <div className="md:w-5/12 mt-2 sm:mt-4 md:mt-8 relative">
-                  <p className="text-base sm:text-xl md:text-2xl lg:text-3xl text-white/80 leading-relaxed relative z-10">
+              <div className="flex flex-col md:flex-row items-center gap-6 sm:gap-10 md:gap-16 flex-grow">
+                <div className="md:w-5/12 relative">
+                  <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 leading-relaxed relative z-10 italic">
                     {slide.description}
                   </p>
                 </div>
                 
-                <div className="md:w-6/12 w-full h-[180px] sm:h-[220px] md:h-[85%] relative rounded border border-white/20 overflow-hidden shadow-[0_0_30px_rgba(255,255,255,0.05)]">
+                <div className="md:w-6/12 w-full h-[180px] sm:h-[220px] md:h-[350px] lg:h-[400px] relative rounded border border-white/20 overflow-hidden shadow-[0_0_30px_rgba(255,255,255,0.05)]">
                   <Image 
                     src={slide.image} 
                     alt={slide.title} 
@@ -114,8 +113,6 @@ export default function HeroSection5() {
           </div>
         ))}
       </div>
-      {/* Gradient fade to blend into the golden background of HeroSection6 */}
-      <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-b from-transparent to-[#dfb871] pointer-events-none z-20" />
     </section>
   );
 }

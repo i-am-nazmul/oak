@@ -76,16 +76,24 @@ export default function HeroSection8() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-16 sm:py-24 md:py-36 px-4 sm:px-6 md:px-12 rounded-b-2xl sm:rounded-b-3xl md:rounded-b-[3rem] overflow-hidden"
-      style={{ background: "linear-gradient(180deg, #050505 0%, #0a0f1a 50%, #050505 100%)" }}
+      className="relative py-16 sm:py-24 md:py-36 px-4 sm:px-6 md:px-12 overflow-hidden bg-[#050505]"
     >
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/driving_results.png" 
+          alt="Driving Results Background" 
+          className="w-full h-full object-cover opacity-60"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#050505]/40 to-[#050505]" />
+      </div>
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="text-center mb-10 sm:mb-16 md:mb-20"
+        className="text-center mb-10 sm:mb-16 md:mb-20 relative z-10"
       >
         <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-white/10 bg-white/5 text-white/70 text-xs sm:text-sm mb-4 sm:mb-6">
           <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
@@ -102,7 +110,7 @@ export default function HeroSection8() {
       </motion.div>
 
       {/* Stats Grid */}
-      <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
+      <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6 relative z-10">
         {stats.map((stat, index) => (
           <motion.div
             key={stat.id}

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function HeroSection1() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -36,7 +36,7 @@ export default function HeroSection1() {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent via-[80%] to-black -z-10" />
 
       {/* Content Container */}
-      <div className="w-full max-w-[1400px] mx-auto px-5 sm:px-6 md:px-12 lg:px-16 xl:px-20 relative z-10 mt-24 sm:mt-20 md:mt-20 lg:mt-28">
+      <div className="w-full px-4 sm:px-6 md:px-12 lg:px-20 relative z-10 mt-24 sm:mt-20 md:mt-20 lg:mt-28">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -44,12 +44,12 @@ export default function HeroSection1() {
           className="max-w-4xl space-y-4 sm:space-y-5"
         >
           {/* Heading */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] xl:text-[5rem] font-serif tracking-wide leading-none text-white">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[4rem] font-serif tracking-wide leading-none text-white">
             CREATORS <span className="text-[#F2C94C] [text-shadow:0_0_30px_rgba(242,201,76,0.8),0_0_10px_rgba(242,201,76,0.5)]">OAK</span>
           </h1>
 
           {/* Subheading */}
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-[2.75rem] font-serif text-white/90 leading-[1.15]">
+          <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-serif text-white/90 leading-[1.15]">
             Curating Creators. Growing Brands.
           </h2>
 

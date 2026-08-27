@@ -10,6 +10,7 @@ import HeroSection5 from "@/components/HeroSections/HeroSection5";
 import HeroSection6 from "@/components/HeroSections/HeroSection6";
 import HeroSection7 from "@/components/HeroSections/HeroSection7";
 import HeroSection8 from "@/components/HeroSections/HeroSection8";
+import HeroSection9 from "@/components/HeroSections/HeroSection9";
 import FooterCTA from "@/components/FooterCTA";
 import ScrollToTop from "@/components/ScrollToTop";
 import SplashScreen from "@/components/SplashScreen";
@@ -25,14 +26,7 @@ export default function Home() {
     <>
       {!splashDone && <SplashScreen onComplete={handleSplashComplete} />}
 
-      <div
-        className="flex flex-col min-h-screen bg-transparent overflow-x-clip"
-        style={{
-          opacity: splashDone ? 1 : 0,
-          transition: "opacity 0.6s ease-in-out",
-          pointerEvents: splashDone ? "auto" : "none",
-        }}
-      >
+      <div className="flex flex-col min-h-screen bg-transparent overflow-x-clip">
         <ScrollToTop />
         <Navbar />
         <main>
@@ -44,6 +38,7 @@ export default function Home() {
           <HeroSection6 />
           <HeroSection7 />
           <HeroSection8 />
+          <HeroSection9 />
         </main>
         <FooterCTA />
       </div>
