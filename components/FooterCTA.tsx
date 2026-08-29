@@ -58,6 +58,7 @@ export default function FooterCTA() {
                   src="/goldentree.png" 
                   alt="Creators Oak" 
                   fill
+                  sizes="48px"
                   className="object-contain"
                 />
               </div>

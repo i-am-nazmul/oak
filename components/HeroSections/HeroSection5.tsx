@@ -105,6 +105,7 @@ export default function HeroSection5() {
                     src={slide.image} 
                     alt={slide.title} 
                     fill 
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover" 
                   />
                 </div>

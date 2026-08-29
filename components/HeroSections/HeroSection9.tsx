@@ -2,14 +2,19 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { useState } from "react";
+import JoinCreatorsModal from "../JoinCreatorsModal";
 
 // Using high quality Unsplash placeholders that match the aesthetic
 const CAMERA_IMG = "/for_creators.png";
 const LAPTOP_IMG = "/for_brands.png";
 
 export default function HeroSection9() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
-    <section className="bg-black py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 lg:px-20 relative z-10">
+    <>
+      <section className="bg-black py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 lg:px-20 relative z-10">
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 xl:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
         
         {/* Card 1: For Creators */}
@@ -44,7 +49,13 @@ export default function HeroSection9() {
               </p>
               
               <div>
-                <button className="flex items-center gap-4 border border-[#dfb871] bg-transparent hover:bg-[#dfb871]/10 text-[#dfb871] px-6 sm:px-8 py-3 rounded-full transition-all duration-300 text-sm font-medium group/btn">
+                <button 
+                  onClick={() => {
+                    setIsModalOpen(true);
+                    fetch('https://oak-server-m6hr.onrender.com/health').catch(console.error);
+                  }}
+                  className="flex items-center gap-4 border border-[#dfb871] bg-transparent hover:bg-[#dfb871]/10 text-[#dfb871] px-6 sm:px-8 py-3 rounded-full transition-all duration-300 text-sm font-medium group/btn"
+                >
                   Join Creators Oak
                   <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                 </button>
@@ -99,5 +110,7 @@ export default function HeroSection9() {
 
       </div>
     </section>
+    <JoinCreatorsModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    </>
   );
 }

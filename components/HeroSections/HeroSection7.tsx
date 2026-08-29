@@ -67,6 +67,7 @@ function AnimatedGridItem({ item, spread }: { item: any, spread: any }) {
         src={item.src}
         alt={`Grid image ${item.id}`}
         fill
+        sizes="(max-width: 768px) 100vw, 50vw"
         className={`object-cover ${item.objectPosition || "object-center"}`}
       />
     </motion.div>
