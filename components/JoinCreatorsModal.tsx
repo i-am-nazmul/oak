@@ -1,8 +1,8 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
-import { useEffect } from "react";
+import { X, Loader2 } from "lucide-react";
+import { useEffect, useState } from "react";
 
 interface JoinCreatorsModalProps {
   isOpen: boolean;
@@ -10,6 +10,8 @@ interface JoinCreatorsModalProps {
 }
 
 export default function JoinCreatorsModal({ isOpen, onClose }: JoinCreatorsModalProps) {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   // Prevent scrolling when modal is open
   useEffect(() => {
     if (isOpen) {
@@ -65,11 +67,12 @@ export default function JoinCreatorsModal({ isOpen, onClose }: JoinCreatorsModal
             <div className="overflow-y-auto px-8 pb-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
               <form className="space-y-5" onSubmit={async (e) => {
                 e.preventDefault();
+                setIsSubmitting(true);
                 const formData = new FormData(e.currentTarget);
                 const data = Object.fromEntries(formData.entries());
                 
                 try {
-                  const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+                  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
                   const response = await fetch(`${apiUrl}/api/creators`, {
                     method: 'POST',
                     headers: {
@@ -84,6 +87,8 @@ export default function JoinCreatorsModal({ isOpen, onClose }: JoinCreatorsModal
                   }
                 } catch (error) {
                   console.error('Error submitting form:', error);
+                } finally {
+                  setIsSubmitting(false);
                 }
               }}>
                 {/* Full Name */}
@@ -212,8 +217,16 @@ export default function JoinCreatorsModal({ isOpen, onClose }: JoinCreatorsModal
 
                 {/* Submit */}
                 <div className="pt-4 pb-2">
-                  <button type="submit" className="w-full bg-[#dfb871] hover:bg-[#c9a55e] text-black font-semibold py-3 rounded-md transition-colors">
-                    Submit Application
+                  <button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className="w-full bg-[#dfb871] hover:bg-[#c9a55e] text-black font-semibold py-3 rounded-md transition-colors disabled:opacity-70 flex items-center justify-center"
+                  >
+                    {isSubmitting ? (
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                    ) : (
+                      "Submit Application"
+                    )}
                   </button>
                 </div>
               </form>
