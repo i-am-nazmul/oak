@@ -69,7 +69,8 @@ export default function JoinCreatorsModal({ isOpen, onClose }: JoinCreatorsModal
                 const data = Object.fromEntries(formData.entries());
                 
                 try {
-                  const response = await fetch('https://oak-server-m6hr.onrender.com/api/creators', {
+                  const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+                  const response = await fetch(`${apiUrl}/api/creators`, {
                     method: 'POST',
                     headers: {
                       'Content-Type': 'application/json',
@@ -139,7 +140,7 @@ export default function JoinCreatorsModal({ isOpen, onClose }: JoinCreatorsModal
                         <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
                       </span>
                       <input
-                        type="url"
+                        type="text"
                         name="instagramLink"
                         placeholder="instagram.com/yourusername"
                         className="w-full bg-[#111] border border-white/10 rounded-md pl-10 pr-4 py-3 text-white text-sm focus:outline-none focus:border-[#dfb871]/50 focus:ring-1 focus:ring-[#dfb871]/50 transition-all placeholder:text-white/30"
@@ -153,7 +154,7 @@ export default function JoinCreatorsModal({ isOpen, onClose }: JoinCreatorsModal
                         <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
                       </span>
                       <input
-                        type="url"
+                        type="text"
                         name="youtubeLink"
                         placeholder="youtube.com/@yourchannel"
                         className="w-full bg-[#111] border border-white/10 rounded-md pl-10 pr-4 py-3 text-white text-sm focus:outline-none focus:border-[#dfb871]/50 focus:ring-1 focus:ring-[#dfb871]/50 transition-all placeholder:text-white/30"
@@ -166,7 +167,7 @@ export default function JoinCreatorsModal({ isOpen, onClose }: JoinCreatorsModal
                 <div>
                   <label className="block text-white/80 text-xs font-medium mb-2">Other Social Media Link (Optional)</label>
                   <input
-                    type="url"
+                    type="text"
                     name="otherSocialMediaLink"
                     placeholder="tiktok.com/@yourusername or any other link"
                     className="w-full bg-[#111] border border-white/10 rounded-md px-4 py-3 text-white text-sm focus:outline-none focus:border-[#dfb871]/50 focus:ring-1 focus:ring-[#dfb871]/50 transition-all placeholder:text-white/30"
