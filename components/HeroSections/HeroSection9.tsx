@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 import JoinCreatorsModal from "../JoinCreatorsModal";
+import JoinBrandsModal from "../JoinBrandsModal";
 
 // Using high quality Unsplash placeholders that match the aesthetic
 const CAMERA_IMG = "/for_creators.png";
@@ -11,6 +12,7 @@ const LAPTOP_IMG = "/for_brands.png";
 
 export default function HeroSection9() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isBrandsModalOpen, setIsBrandsModalOpen] = useState(false);
 
   return (
     <>
@@ -98,7 +100,10 @@ export default function HeroSection9() {
               </p>
               
               <div>
-                <button className="flex items-center gap-4 border border-[#dfb871] bg-transparent hover:bg-[#dfb871]/10 text-[#dfb871] px-6 sm:px-8 py-3 rounded-full transition-all duration-300 text-sm font-medium group/btn">
+                <button 
+                  onClick={() => setIsBrandsModalOpen(true)}
+                  className="flex items-center gap-4 border border-[#dfb871] bg-transparent hover:bg-[#dfb871]/10 text-[#dfb871] px-6 sm:px-8 py-3 rounded-full transition-all duration-300 text-sm font-medium group/btn"
+                >
                   Partner With Us
                   <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                 </button>
@@ -111,6 +116,7 @@ export default function HeroSection9() {
       </div>
     </section>
     <JoinCreatorsModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    <JoinBrandsModal isOpen={isBrandsModalOpen} onClose={() => setIsBrandsModalOpen(false)} />
     </>
   );
 }
