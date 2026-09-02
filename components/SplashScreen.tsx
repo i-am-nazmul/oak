@@ -8,6 +8,7 @@ export default function SplashScreen({
   onComplete: () => void;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const bgVideoRef = useRef<HTMLVideoElement>(null);
   const [isFading, setIsFading] = useState(false);
   const [visible, setVisible] = useState(true);
   const [hasMounted, setHasMounted] = useState(false);
@@ -21,8 +22,13 @@ export default function SplashScreen({
   useEffect(() => {
     if (!hasMounted || !videoRef.current) return;
     videoRef.current.playbackRate = 1.2;
+    if (bgVideoRef.current) bgVideoRef.current.playbackRate = 1.2;
+
     // Attempt autoplay (muted is required for autoplay in most browsers)
-    videoRef.current.play().catch(() => {
+    const playPromise = videoRef.current.play();
+    if (bgVideoRef.current) bgVideoRef.current.play().catch(() => {});
+
+    playPromise.catch(() => {
       // If autoplay fails (e.g. browser policy), skip the intro
       setIsFading(true);
       setTimeout(() => {
@@ -47,20 +53,34 @@ export default function SplashScreen({
 
   return (
     <div
-      className="splash-screen"
+      className="splash-screen relative overflow-hidden bg-black"
       style={{
         opacity: isFading ? 0 : 1,
         transition: "opacity 0.8s ease-in-out",
       }}
     >
+      {/* Background Ambient Video */}
       <video
-        ref={videoRef}
+        ref={bgVideoRef}
         src="/newIntro.mp4"
         muted
         playsInline
-        onEnded={handleVideoEnd}
-        className="w-full h-full object-contain md:object-cover"
+        className="absolute inset-0 w-full h-full object-cover opacity-30 blur-sm scale-110 pointer-events-none"
       />
+
+      {/* Main Video with Vignette */}
+      <div className="relative z-10 w-full h-full">
+        <video
+          ref={videoRef}
+          src="/newIntro.mp4"
+          muted
+          playsInline
+          onEnded={handleVideoEnd}
+          className="w-full h-full object-contain md:object-cover"
+        />
+        {/* Vignette Overlay for fading edges */}
+        <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_100px_100px_rgba(0,0,0,1)] md:shadow-[inset_0_0_150px_100px_rgba(0,0,0,1)]" />
+      </div>
     </div>
   );
 }
