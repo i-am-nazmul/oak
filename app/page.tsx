@@ -48,7 +48,7 @@ export default function Home() {
             <HeroSection9 />
           </div>
         </main>
-        <div id="contact">
+        <div id="contact" className="flex-1 flex flex-col">
           <FooterCTA />
         </div>
       </div>

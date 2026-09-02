@@ -59,13 +59,7 @@ export default function HeroSection1() {
             to build stories that inspire, engage and grow.
           </p>
 
-          {/* CTA Button */}
-          <div className="pt-3 sm:pt-4">
-            <button className="group flex items-center gap-3 px-5 py-3 sm:px-6 lg:px-8 lg:py-4 border border-white/30 bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-all duration-300 text-xs sm:text-sm tracking-wider text-white">
-              Let's Grow Together
-              <ArrowRight className="w-4 h-4 text-white/70 group-hover:translate-x-1 transition-transform" strokeWidth={1.5} />
-            </button>
-          </div>
+
         </motion.div>
       </div>
 

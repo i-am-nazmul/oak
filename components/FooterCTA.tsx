@@ -14,7 +14,7 @@ export default function FooterCTA() {
   };
 
   return (
-    <footer id="contact" className="relative bg-[#050505] text-white pt-20 pb-8 px-4 sm:px-6 md:px-12 lg:px-20 overflow-hidden border-t border-[#dfb871]/40">
+    <footer id="contact" className="relative flex flex-col flex-1 bg-[#050505] text-white pt-20 pb-8 px-4 sm:px-6 md:px-12 lg:px-20 overflow-hidden border-t border-[#dfb871]/40">
       {/* Background Abstract Waves (Left and Right) */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         {/* Left Wave Effect */}
@@ -55,11 +55,11 @@ export default function FooterCTA() {
         />
       </div>
 
-      <div className="max-w-[1400px] mx-auto relative z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 pb-16">
+      <div className="max-w-[1400px] w-full mx-auto relative z-10 flex flex-col flex-1">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-4 sm:gap-12 lg:gap-8 pb-16">
           
           {/* Column 1: Brand Info */}
-          <div className="flex flex-col pr-4 border-l-0 lg:border-r border-[#dfb871]/20">
+          <div className="col-span-2 sm:col-span-1 flex flex-col pr-4 border-l-0 lg:border-r border-[#dfb871]/20">
             <div className="flex items-center gap-3 mb-6">
               <div className="relative w-12 h-12 flex-shrink-0">
                 <Image 
@@ -95,7 +95,7 @@ export default function FooterCTA() {
           </div>
 
           {/* Column 2: Explore */}
-          <div className="flex flex-col px-0 lg:px-4 border-l-0 lg:border-r border-[#dfb871]/20">
+          <div className="col-span-1 flex flex-col px-0 lg:px-4 border-l-0 lg:border-r border-[#dfb871]/20">
             <h4 className="text-[#dfb871] font-bold text-xs tracking-widest uppercase mb-6">Explore</h4>
             <div className="flex flex-col gap-4 text-sm text-white/70">
               <button onClick={() => handleScroll('home')} className="hover:text-[#dfb871] transition-colors w-fit text-left">Home</button>
@@ -109,7 +109,7 @@ export default function FooterCTA() {
           </div>
 
           {/* Column 3: Services */}
-          <div className="flex flex-col px-0 lg:px-4 border-l-0 lg:border-r border-[#dfb871]/20">
+          <div className="col-span-1 flex flex-col px-0 lg:px-4 border-l-0 lg:border-r border-[#dfb871]/20">
             <h4 className="text-[#dfb871] font-bold text-xs tracking-widest uppercase mb-6">Services</h4>
             <div className="flex flex-col gap-4 text-sm text-white/70">
               <button onClick={() => handleScroll('services')} className="hover:text-[#dfb871] transition-colors w-fit text-left">Brand Research</button>
@@ -122,7 +122,7 @@ export default function FooterCTA() {
           </div>
 
           {/* Column 4: Contact */}
-          <div className="flex flex-col px-0 lg:px-4">
+          <div className="col-span-2 sm:col-span-1 flex flex-col px-0 lg:px-4">
             <h4 className="text-[#dfb871] font-bold text-xs tracking-widest uppercase mb-6">Contact</h4>
             <div className="flex flex-col gap-6 text-sm text-white/70">
               
@@ -158,7 +158,7 @@ export default function FooterCTA() {
         </div>
 
         {/* Footer Bottom Line */}
-        <div className="pt-6 sm:pt-8 border-t border-[#dfb871]/20 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-white/50">
+        <div className="mt-auto pt-6 sm:pt-8 border-t border-[#dfb871]/20 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-white/50">
           <p>© 2026 Creators Oak. All rights reserved.</p>
           <div className="flex items-center gap-4">
             <Link href="#" className="hover:text-[#dfb871] transition-colors">Privacy Policy</Link>
