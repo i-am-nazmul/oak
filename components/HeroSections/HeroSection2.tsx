@@ -67,12 +67,12 @@ export default function HeroSection2() {
           className="flex w-max gap-12 sm:gap-20 md:gap-32 pr-12 sm:pr-20 md:pr-32 items-center animate-marquee-left pause-on-hover"
         >
           {[...brandsRow1, ...brandsRow1, ...brandsRow1].map((logoSrc, i) => (
-            <div key={i} className="relative w-32 sm:w-40 md:w-48 h-12 sm:h-16 md:h-20">
+            <div key={i} className="relative w-32 sm:w-40 md:w-48 h-12 sm:h-16 md:h-20 flex items-center justify-center">
               <Image 
                 src={logoSrc}
                 alt="Brand Logo"
                 fill
-                className="object-contain hover:scale-105 transition-transform duration-300"
+                className={`object-contain hover:scale-105 transition-transform duration-300 ${logoSrc.includes('amazon') ? 'bg-white rounded-lg p-2 sm:p-3' : ''}`}
                 sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, 192px"
               />
             </div>

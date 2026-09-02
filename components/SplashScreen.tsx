@@ -59,11 +59,7 @@ export default function SplashScreen({
         muted
         playsInline
         onEnded={handleVideoEnd}
-        style={{
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-        }}
+        className="w-full h-full object-contain md:object-cover"
       />
     </div>
   );

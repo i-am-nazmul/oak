@@ -21,7 +21,7 @@ export default function HeroSection1() {
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover object-[15%_top] -z-10"
+        className="absolute inset-0 w-full h-full object-cover object-[15%_top] mobile-pan-video -z-10"
       >
         <source src="/newbg.mp4" type="video/mp4" />
       </video>

@@ -21,10 +21,11 @@ export default function HeroSection9() {
         
         {/* Card 1: For Creators */}
         <motion.div 
+          id="creators"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="relative group rounded-[2rem] p-[1.5px] bg-gradient-to-br from-pink-500/40 via-orange-400/40 to-transparent hover:from-pink-500/70 hover:via-orange-400/70 transition-all duration-500 overflow-hidden"
+          className="relative group rounded-[2rem] p-[1.5px] bg-gradient-to-br from-pink-500/40 via-orange-400/40 to-transparent hover:from-pink-500/70 hover:via-orange-400/70 transition-all duration-500 overflow-hidden scroll-mt-24 md:scroll-mt-32"
         >
           <div className="bg-[#050505] rounded-[2rem] h-full min-h-[300px] sm:min-h-[350px] flex flex-col p-6 sm:p-10 relative overflow-hidden">
             
@@ -69,11 +70,12 @@ export default function HeroSection9() {
 
         {/* Card 2: For Brands */}
         <motion.div 
+          id="brands"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="relative group rounded-[2rem] p-[1.5px] bg-gradient-to-bl from-purple-500/40 via-orange-400/40 to-transparent hover:from-purple-500/70 hover:via-orange-400/70 transition-all duration-500 overflow-hidden"
+          className="relative group rounded-[2rem] p-[1.5px] bg-gradient-to-bl from-purple-500/40 via-orange-400/40 to-transparent hover:from-purple-500/70 hover:via-orange-400/70 transition-all duration-500 overflow-hidden scroll-mt-24 md:scroll-mt-32"
         >
           <div className="bg-[#050505] rounded-[2rem] h-full min-h-[300px] sm:min-h-[350px] flex flex-col p-6 sm:p-10 relative overflow-hidden">
             

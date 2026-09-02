@@ -28,6 +28,15 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Viewport scaling: make everything scale proportionally on desktop/laptop screens.
+   At 1920px → 16px (baseline). Smaller laptops shrink, larger ones grow.
+   Only applies above 1024px so mobile/tablet responsive classes remain unaffected. */
+@media (min-width: 1024px) {
+  html {
+    font-size: clamp(11px, 0.833vw, 22px);
+  }
+}
+
 /* ─── Marquee animations ─── */
 
 @keyframes scroll-left {
@@ -51,4 +60,24 @@ html {
 .pause-on-hover:hover {
   animation-play-state: paused;
 }
-html { scroll-behavior: smooth; }
+
+/* ─── Video Panning Animation for Mobile ─── */
+@keyframes pan-video {
+  0%, 100% { object-position: 0% top; }
+  50% { object-position: 100% top; }
+}
+
+@media (max-width: 767px) {
+  .mobile-pan-video {
+    animation: pan-video 35s ease-in-out infinite;
+  }
+}
+
+/* ─── Utilities ─── */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

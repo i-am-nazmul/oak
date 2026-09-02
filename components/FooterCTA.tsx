@@ -2,9 +2,17 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import { Mail, MapPin, Phone } from "lucide-react";
+import AboutUsModal from "./AboutUsModal";
 
 export default function FooterCTA() {
+  const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
+
+  const handleScroll = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <footer id="contact" className="relative bg-[#050505] text-white pt-20 pb-8 px-4 sm:px-6 md:px-12 lg:px-20 overflow-hidden border-t border-[#dfb871]/40">
       {/* Background Abstract Waves (Left and Right) */}
@@ -90,13 +98,13 @@ export default function FooterCTA() {
           <div className="flex flex-col px-0 lg:px-4 border-l-0 lg:border-r border-[#dfb871]/20">
             <h4 className="text-[#dfb871] font-bold text-xs tracking-widest uppercase mb-6">Explore</h4>
             <div className="flex flex-col gap-4 text-sm text-white/70">
-              <Link href="#" className="hover:text-[#dfb871] transition-colors w-fit">Home</Link>
-              <Link href="#" className="hover:text-[#dfb871] transition-colors w-fit">About Us</Link>
-              <Link href="#" className="hover:text-[#dfb871] transition-colors w-fit">Services</Link>
-              <Link href="#" className="hover:text-[#dfb871] transition-colors w-fit">For Brands</Link>
-              <Link href="#" className="hover:text-[#dfb871] transition-colors w-fit">For Creators</Link>
-              <Link href="#" className="hover:text-[#dfb871] transition-colors w-fit">Our Work</Link>
-              <Link href="#" className="hover:text-[#dfb871] transition-colors w-fit">Contact</Link>
+              <button onClick={() => handleScroll('home')} className="hover:text-[#dfb871] transition-colors w-fit text-left">Home</button>
+              <button onClick={() => setIsAboutModalOpen(true)} className="hover:text-[#dfb871] transition-colors w-fit text-left">About Us</button>
+              <button onClick={() => handleScroll('services')} className="hover:text-[#dfb871] transition-colors w-fit text-left">Services</button>
+              <button onClick={() => handleScroll('brands')} className="hover:text-[#dfb871] transition-colors w-fit text-left">For Brands</button>
+              <button onClick={() => handleScroll('creators')} className="hover:text-[#dfb871] transition-colors w-fit text-left">For Creators</button>
+              <button onClick={() => handleScroll('work')} className="hover:text-[#dfb871] transition-colors w-fit text-left">Our Work</button>
+              <button onClick={() => handleScroll('contact')} className="hover:text-[#dfb871] transition-colors w-fit text-left">Contact</button>
             </div>
           </div>
 
@@ -104,12 +112,12 @@ export default function FooterCTA() {
           <div className="flex flex-col px-0 lg:px-4 border-l-0 lg:border-r border-[#dfb871]/20">
             <h4 className="text-[#dfb871] font-bold text-xs tracking-widest uppercase mb-6">Services</h4>
             <div className="flex flex-col gap-4 text-sm text-white/70">
-              <Link href="#" className="hover:text-[#dfb871] transition-colors w-fit">Brand Research</Link>
-              <Link href="#" className="hover:text-[#dfb871] transition-colors w-fit">Product & Launch Strategy</Link>
-              <Link href="#" className="hover:text-[#dfb871] transition-colors w-fit">Strategic Content Planning</Link>
-              <Link href="#" className="hover:text-[#dfb871] transition-colors w-fit">Creator Marketing</Link>
-              <Link href="#" className="hover:text-[#dfb871] transition-colors w-fit">Creative & Social</Link>
-              <Link href="#" className="hover:text-[#dfb871] transition-colors w-fit">Web Experiences</Link>
+              <button onClick={() => handleScroll('services')} className="hover:text-[#dfb871] transition-colors w-fit text-left">Brand Research</button>
+              <button onClick={() => handleScroll('services')} className="hover:text-[#dfb871] transition-colors w-fit text-left">Product & Launch Strategy</button>
+              <button onClick={() => handleScroll('services')} className="hover:text-[#dfb871] transition-colors w-fit text-left">Strategic Content Planning</button>
+              <button onClick={() => handleScroll('services')} className="hover:text-[#dfb871] transition-colors w-fit text-left">Creator Marketing</button>
+              <button onClick={() => handleScroll('services')} className="hover:text-[#dfb871] transition-colors w-fit text-left">Creative & Social</button>
+              <button onClick={() => handleScroll('services')} className="hover:text-[#dfb871] transition-colors w-fit text-left">Web Experiences</button>
             </div>
           </div>
 
@@ -161,6 +169,8 @@ export default function FooterCTA() {
           </div>
         </div>
       </div>
+      
+      <AboutUsModal isOpen={isAboutModalOpen} onClose={() => setIsAboutModalOpen(false)} />
     </footer>
   );
 }

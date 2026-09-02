@@ -30,17 +30,27 @@ export default function Home() {
         <ScrollToTop />
         <Navbar />
         <main>
-          <HeroSection1 />
-          <HeroSection2 />
-          <HeroSection3 />
-          <HeroSection4 />
-          <HeroSection5 />
-          <HeroSection6 />
-          <HeroSection7 />
-          <HeroSection8 />
-          <HeroSection9 />
+          <div id="home"><HeroSection1 /></div>
+          <div id="about">
+            <HeroSection2 />
+            <HeroSection3 />
+          </div>
+          <div id="services">
+            <HeroSection4 />
+            <HeroSection5 />
+          </div>
+          <div id="work">
+            <HeroSection6 />
+            <HeroSection7 />
+            <HeroSection8 />
+          </div>
+          <div id="connect">
+            <HeroSection9 />
+          </div>
         </main>
-        <FooterCTA />
+        <div id="contact">
+          <FooterCTA />
+        </div>
       </div>
     </>
   );

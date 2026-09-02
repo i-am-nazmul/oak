@@ -3,19 +3,19 @@
 import { motion } from "framer-motion";
 
 const reviewsRow1 = [
-  { id: 1, name: "Priya Sharma", company: "TechFlow Solutions", review: "Creators Oak understood the kind of creators our brand needed and connected us with the right influencers. The campaign felt authentic and delivered strong engagement.", rating: 5 },
-  { id: 2, name: "Rohan Desai", company: "Nexus Dynamics", review: "The entire influencer campaign was handled smoothly, from creator selection to content execution. We saw great reach, meaningful engagement and a noticeable response from our audience.", rating: 5 },
-  { id: 3, name: "Ananya Patel", company: "Aura Lifestyle", review: "What stood out was how well Creators Oak matched creators with our brand. The collaboration felt genuine, the content worked naturally, and the overall experience was excellent.", rating: 4 },
-  { id: 4, name: "Vikram Singh", company: "Pinnacle Sports", review: "Their SEO and performance analytics strategies brought us organic traffic we never thought possible. A brilliant team of professionals.", rating: 5 },
-  { id: 5, name: "Kavita Reddy", company: "Gourmet Bites", review: "From website design to social media execution, everything was handled flawlessly. I couldn't recommend them highly enough.", rating: 4 },
+  { id: 1, name: "Priya Sharma", company: "Amazon", review: "Creators Oak understood the kind of creators our brand needed and connected us with the right influencers. The campaign felt authentic and delivered strong engagement.", rating: 5 },
+  { id: 2, name: "Rohan Desai", company: "Sunsilk", review: "The entire influencer campaign was handled smoothly, from creator selection to content execution. We saw great reach, meaningful engagement and a noticeable response from our audience.", rating: 5 },
+  { id: 3, name: "Ananya Patel", company: "Philips", review: "What stood out was how well Creators Oak matched creators with our brand. The collaboration felt genuine, the content worked naturally, and the overall experience was excellent.", rating: 4 },
+  { id: 4, name: "Vikram Singh", company: "Zomato", review: "Their SEO and performance analytics strategies brought us organic traffic we never thought possible. A brilliant team of professionals.", rating: 5 },
+  { id: 5, name: "Kavita Reddy", company: "Bru", review: "From website design to social media execution, everything was handled flawlessly. I couldn't recommend them highly enough.", rating: 4 },
 ];
 
 const reviewsRow2 = [
-  { id: 6, name: "Arjun Kapoor", company: "Elevate Finance", review: "The storytelling aspect of their marketing is what truly sets them apart. They know exactly how to hook an audience and keep them engaged.", rating: 5 },
-  { id: 7, name: "Neha Gupta", company: "Luna Cosmetics", review: "The brand growth we've experienced has been staggering. They understood our vision from day one and executed it with absolute precision.", rating: 4 },
-  { id: 8, name: "Rahul Verma", company: "Horizon Tech", review: "Incredibly responsive, forward-thinking, and deeply knowledgeable. They are the architects behind our most successful product launch to date.", rating: 5 },
-  { id: 9, name: "Sneha Iyer", company: "Eco Living", review: "They brought our sustainable brand to the forefront of the market. The graphic design and video editing work was nothing short of spectacular.", rating: 5 },
-  { id: 10, name: "Aditya Joshi", company: "Vertex Logistics", review: "A seamless experience from start to finish. Their data-driven approach ensured that every dollar we spent saw a tremendous return on investment.", rating: 4 },
+  { id: 6, name: "Arjun Kapoor", company: "Vogue", review: "The storytelling aspect of their marketing is what truly sets them apart. They know exactly how to hook an audience and keep them engaged.", rating: 5 },
+  { id: 7, name: "Neha Gupta", company: "Master Chow", review: "The brand growth we've experienced has been staggering. They understood our vision from day one and executed it with absolute precision.", rating: 4 },
+  { id: 8, name: "Rahul Verma", company: "Milk Basket", review: "Incredibly responsive, forward-thinking, and deeply knowledgeable. They are the architects behind our most successful product launch to date.", rating: 5 },
+  { id: 9, name: "Sneha Iyer", company: "Urban Platter", review: "They brought our sustainable brand to the forefront of the market. The graphic design and video editing work was nothing short of spectacular.", rating: 5 },
+  { id: 10, name: "Aditya Joshi", company: "Disano", review: "A seamless experience from start to finish. Their data-driven approach ensured that every dollar we spent saw a tremendous return on investment.", rating: 4 },
 ];
 
 const StarRating = ({ rating = 5 }: { rating?: number }) => (

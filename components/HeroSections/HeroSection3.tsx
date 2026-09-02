@@ -70,7 +70,7 @@ export default function HeroSection3() {
 
   return (
     <section 
-      className="relative min-h-[70vh] sm:min-h-screen bg-black overflow-hidden flex flex-col items-center justify-center cursor-crosshair touch-none"
+      className="relative min-h-[70vh] sm:min-h-screen bg-black overflow-hidden flex flex-col items-center justify-center cursor-crosshair"
       onMouseMove={handleMouseMove}
       onTouchMove={handleTouchMove}
     >
