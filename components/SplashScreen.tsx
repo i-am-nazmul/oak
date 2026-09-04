@@ -13,10 +13,25 @@ export default function SplashScreen({
   const [visible, setVisible] = useState(true);
   const [hasMounted, setHasMounted] = useState(false);
 
-  // Mark client mount
+  // Mark client mount & check mobile screen
   useEffect(() => {
+    if (window.innerWidth < 768) {
+      setVisible(false);
+      onComplete();
+      return;
+    }
     setHasMounted(true);
-  }, []);
+
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setVisible(false);
+        onComplete();
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [onComplete]);
 
   // Auto-play the video once mounted
   useEffect(() => {
@@ -47,13 +62,13 @@ export default function SplashScreen({
     }, 800);
   }, [onComplete]);
 
-  // SSR & pre-mount: render a static black div for hydration match
-  if (!hasMounted) return <div className="splash-screen" />;
+  // SSR & pre-mount: render a static black div for hydration match (hidden on mobile)
+  if (!hasMounted) return <div className="splash-screen hidden md:flex" />;
   if (!visible) return null;
 
   return (
     <div
-      className="splash-screen relative overflow-hidden bg-black"
+      className="splash-screen hidden md:flex relative overflow-hidden bg-black"
       style={{
         opacity: isFading ? 0 : 1,
         transition: "opacity 0.8s ease-in-out",

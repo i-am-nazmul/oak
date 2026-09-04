@@ -79,7 +79,7 @@ export default function HeroSection3() {
         <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-[5rem] font-serif text-white/20 select-none text-center leading-tight max-w-5xl px-4">
           Explore the ideas we've grown into reality.
         </h2>
-        <p className="mt-4 sm:mt-6 text-white/40 text-xs sm:text-sm md:text-base font-sans select-none tracking-widest uppercase px-4 text-center">
+        <p className="mt-4 sm:mt-6 text-[#dfb871] text-xs sm:text-sm md:text-base lg:text-xl font-sans select-none tracking-widest uppercase px-4 text-center drop-shadow-[0_0_12px_rgba(223,184,113,0.8)] font-medium">
           <span className="hidden sm:inline">Move your cursor to explore.</span>
           <span className="sm:hidden">Drag your finger to explore.</span>
         </p>

@@ -16,6 +16,13 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Creators Oak | Social Media Agency",
   description: "Connecting companies and creators to build meaningful campaigns.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    apple: "/apple-icon.png",
+  },
 };
 
 export default function RootLayout({

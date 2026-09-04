@@ -59,6 +59,17 @@ export default function HeroSection1() {
             to build stories that inspire, engage and grow.
           </p>
 
+          {/* Let's Connect Button */}
+          <div className="pt-4 sm:pt-6 md:pt-8">
+            <button 
+              type="button" 
+              onClick={() => document.getElementById('connect')?.scrollIntoView({ behavior: 'smooth' })} 
+              className="bg-olive-900 text-white font-sans text-sm sm:text-base xl:text-lg font-bold px-6 py-2.5 xl:px-8 xl:py-3 rounded-md hover:bg-olive-800 transition-colors shadow-sm whitespace-nowrap"
+            >
+              Let's Connect
+            </button>
+          </div>
+
 
         </motion.div>
       </div>

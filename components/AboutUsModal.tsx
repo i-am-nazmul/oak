@@ -151,7 +151,7 @@ export default function AboutUsModal({ isOpen, onClose }: AboutUsModalProps) {
                 </div>
               </div>
 
-              {/* 3 Columns Section */}
+              {/* 3 Columns Section & Bottom Banner */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 pt-8 border-t border-white/5">
                 
                 {/* Column 1 */}
@@ -188,7 +188,7 @@ export default function AboutUsModal({ isOpen, onClose }: AboutUsModalProps) {
                 </div>
 
                 {/* Column 3 */}
-                <div className="flex flex-col md:border-l border-white/5 md:pl-8">
+                <div className="flex flex-col md:border-l border-white/5 md:pl-8 md:row-span-2">
                   <div className="mb-8">
                     <span className="text-white text-xs sm:text-sm font-bold tracking-[0.2em] uppercase">
                       WHAT WE'VE DONE
@@ -219,14 +219,13 @@ export default function AboutUsModal({ isOpen, onClose }: AboutUsModalProps) {
                   </div>
                 </div>
 
-              </div>
-
-              {/* Bottom Banner */}
-              <div className="w-full md:w-2/3 border border-[#dfb871]/20 rounded-xl p-8 sm:p-10 relative overflow-hidden bg-gradient-to-br from-white/5 to-transparent">
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-serif text-white leading-relaxed relative z-10">
-                  We don't just run campaigns.<br/>
-                  <span className="text-[#dfb871]">We build long-term partnerships.</span>
-                </h3>
+                {/* Bottom Banner */}
+                <div className="md:col-span-2 w-full border border-[#dfb871]/20 rounded-xl p-8 sm:p-10 relative overflow-hidden bg-gradient-to-br from-white/5 to-transparent self-end mt-4 md:mt-0">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-serif text-white leading-relaxed relative z-10">
+                    We don't just run campaigns.<br/>
+                    <span className="text-[#dfb871]">We build long-term partnerships.</span>
+                  </h3>
+                </div>
               </div>
 
               {/* Footer Links */}

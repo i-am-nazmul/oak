@@ -52,16 +52,37 @@ export default function HeroSection9() {
               </p>
               
               <div>
-                <button 
+                <motion.button 
                   onClick={() => {
                     setIsModalOpen(true);
                     fetch('https://oak-server-m6hr.onrender.com/health').catch(console.error);
                   }}
-                  className="flex items-center gap-4 border border-[#dfb871] bg-transparent hover:bg-[#dfb871]/10 text-[#dfb871] px-6 sm:px-8 py-3 rounded-full transition-all duration-300 text-sm font-medium group/btn"
+                  animate={{ 
+                    scale: [1, 1.10, 1], 
+                    boxShadow: [
+                      "0 0 0 0 rgba(223,184,113,0)", 
+                      "0 0 35px 6px rgba(223,184,113,0.55)", 
+                      "0 0 0 0 rgba(223,184,113,0)"
+                    ],
+                    borderColor: [
+                      "rgba(223,184,113,0.6)",
+                      "rgba(242,201,76,1)",
+                      "rgba(223,184,113,0.6)"
+                    ],
+                    backgroundColor: [
+                      "rgba(223,184,113,0)",
+                      "rgba(223,184,113,0.18)",
+                      "rgba(223,184,113,0)"
+                    ]
+                  }}
+                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                  whileHover={{ scale: 1.14 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center gap-4 border border-[#dfb871] bg-transparent hover:bg-[#dfb871]/20 text-[#dfb871] px-6 sm:px-8 py-3 rounded-full transition-colors duration-300 text-sm font-medium group/btn"
                 >
                   Join Creators Oak
                   <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                </button>
+                </motion.button>
               </div>
             </div>
 
@@ -102,13 +123,34 @@ export default function HeroSection9() {
               </p>
               
               <div>
-                <button 
+                <motion.button 
                   onClick={() => setIsBrandsModalOpen(true)}
-                  className="flex items-center gap-4 border border-[#dfb871] bg-transparent hover:bg-[#dfb871]/10 text-[#dfb871] px-6 sm:px-8 py-3 rounded-full transition-all duration-300 text-sm font-medium group/btn"
+                  animate={{ 
+                    scale: [1, 1.10, 1], 
+                    boxShadow: [
+                      "0 0 0 0 rgba(223,184,113,0)", 
+                      "0 0 35px 6px rgba(223,184,113,0.55)", 
+                      "0 0 0 0 rgba(223,184,113,0)"
+                    ],
+                    borderColor: [
+                      "rgba(223,184,113,0.6)",
+                      "rgba(242,201,76,1)",
+                      "rgba(223,184,113,0.6)"
+                    ],
+                    backgroundColor: [
+                      "rgba(223,184,113,0)",
+                      "rgba(223,184,113,0.18)",
+                      "rgba(223,184,113,0)"
+                    ]
+                  }}
+                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut", delay: 0.75 }}
+                  whileHover={{ scale: 1.14 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center gap-4 border border-[#dfb871] bg-transparent hover:bg-[#dfb871]/20 text-[#dfb871] px-6 sm:px-8 py-3 rounded-full transition-colors duration-300 text-sm font-medium group/btn"
                 >
                   Partner With Us
                   <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                </button>
+                </motion.button>
               </div>
             </div>
 

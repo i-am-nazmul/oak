@@ -40,7 +40,7 @@ export default function Navbar() {
       transition={{ duration: 0.8 }}
       className="absolute top-0 left-0 right-0 px-4 sm:px-6 md:px-12 lg:px-20 flex items-center justify-between bg-transparent z-50"
     >
-      <div className="flex flex-col sm:flex-row items-center sm:items-center justify-center gap-0 sm:gap-4">
+      <div className="flex flex-row items-center justify-center gap-2 sm:gap-4">
         <div className="relative w-14 h-14 sm:w-20 sm:h-20 md:w-28 md:h-28 flex items-center justify-center">
           <Image
             src="/goldentree.png"
@@ -50,10 +50,16 @@ export default function Navbar() {
             className="object-contain"
           />
         </div>
-        <span className="font-serif text-sm sm:text-xl md:text-2xl font-medium text-white tracking-widest uppercase whitespace-nowrap mt-1 sm:mt-0">Creators Oak</span>
+        <span className="font-serif text-sm sm:text-xl md:text-2xl font-medium text-white tracking-widest uppercase whitespace-nowrap">Creators Oak</span>
       </div>
 
       <div className="flex items-center gap-4 sm:gap-8 xl:gap-12">
+        <button 
+          onClick={() => setIsAboutModalOpen(true)}
+          className="hover:text-[#dfb871] transition-colors tracking-wide text-white font-sans text-sm sm:text-base xl:text-lg font-medium whitespace-nowrap"
+        >
+          About Us
+        </button>
         <div className="relative" ref={menuRef}>
           <button 
             onClick={() => setIsDesktopMenuOpen(!isDesktopMenuOpen)}
@@ -79,10 +85,6 @@ export default function Navbar() {
                     <span className="absolute left-0 top-0 bottom-0 w-1 bg-[#dfb871] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
                     <span className="relative z-10 inline-block transform transition-transform duration-300 group-hover:translate-x-1">Home</span>
                   </button>
-                  <button onClick={() => { setIsDesktopMenuOpen(false); setIsAboutModalOpen(true); }} className="group relative overflow-hidden text-left px-5 sm:px-6 py-2.5 text-white/90 transition-all duration-300 hover:text-[#dfb871] hover:bg-white/5">
-                    <span className="absolute left-0 top-0 bottom-0 w-1 bg-[#dfb871] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
-                    <span className="relative z-10 inline-block transform transition-transform duration-300 group-hover:translate-x-1">About Us</span>
-                  </button>
                   <button onClick={() => handleScroll('services')} className="group relative overflow-hidden text-left px-5 sm:px-6 py-2.5 text-white/90 transition-all duration-300 hover:text-[#dfb871] hover:bg-white/5">
                     <span className="absolute left-0 top-0 bottom-0 w-1 bg-[#dfb871] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
                     <span className="relative z-10 inline-block transform transition-transform duration-300 group-hover:translate-x-1">Services</span>
@@ -100,11 +102,8 @@ export default function Navbar() {
             )}
           </AnimatePresence>
         </div>
-
-        <button type="button" onClick={() => handleScroll('connect')} className="bg-olive-900 text-white font-sans text-sm sm:text-base xl:text-lg font-bold px-3 py-1.5 xl:px-4 xl:py-2 rounded-md hover:bg-olive-800 transition-colors shadow-sm whitespace-nowrap">
-          Let's Connect
-        </button>
       </div>
+
 
       <AboutUsModal isOpen={isAboutModalOpen} onClose={() => setIsAboutModalOpen(false)} />
     </motion.nav>
