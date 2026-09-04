@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import JoinCreatorsModal from "../JoinCreatorsModal";
 import JoinBrandsModal from "../JoinBrandsModal";
 
@@ -13,6 +13,57 @@ const LAPTOP_IMG = "/for_brands.png";
 export default function HeroSection9() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isBrandsModalOpen, setIsBrandsModalOpen] = useState(false);
+  
+  const [isBlinkingCreators, setIsBlinkingCreators] = useState(false);
+  const [isBlinkingBrands, setIsBlinkingBrands] = useState(false);
+
+  useEffect(() => {
+    const handleBlink = (e: CustomEvent) => {
+      console.log('Blink event received:', e.detail);
+      setTimeout(() => {
+        console.log('Starting blink animation for:', e.detail);
+        if (e.detail === 'creators' || e.detail === 'all') {
+          setIsBlinkingCreators(true);
+          setTimeout(() => setIsBlinkingCreators(false), 1800); // 2 blinks * 0.9s
+        }
+        if (e.detail === 'brands' || e.detail === 'all') {
+          setIsBlinkingBrands(true);
+          setTimeout(() => setIsBlinkingBrands(false), 1800);
+        }
+      }, 2000);
+    };
+
+    window.addEventListener('blink-button', handleBlink as EventListener);
+    return () => window.removeEventListener('blink-button', handleBlink as EventListener);
+  }, []);
+
+  const blinkVariants: Variants = {
+    idle: {
+      scale: 1,
+      boxShadow: "0 0 0 0 rgba(223,184,113,0)",
+      borderColor: "rgba(223,184,113,0.6)",
+      backgroundColor: "rgba(223,184,113,0)",
+    },
+    blinking: {
+      scale: [1, 1.10, 1], 
+      boxShadow: [
+        "0 0 0 0 rgba(223,184,113,0)", 
+        "0 0 35px 6px rgba(223,184,113,0.55)", 
+        "0 0 0 0 rgba(223,184,113,0)"
+      ],
+      borderColor: [
+        "rgba(223,184,113,0.6)",
+        "rgba(242,201,76,1)",
+        "rgba(223,184,113,0.6)"
+      ],
+      backgroundColor: [
+        "rgba(223,184,113,0)",
+        "rgba(223,184,113,0.18)",
+        "rgba(223,184,113,0)"
+      ],
+      transition: { duration: 0.9, repeat: 1, ease: "easeInOut" }
+    }
+  };
 
   return (
     <>
@@ -39,7 +90,7 @@ export default function HeroSection9() {
             </div>
 
             {/* Content (Pushed Right) */}
-            <div className="relative z-10 flex flex-col h-full w-full max-w-[320px] sm:max-w-[380px] ml-auto self-end justify-center">
+            <div className="relative z-10 flex flex-col h-full w-full max-w-[320px] sm:max-w-[380px] ml-0 sm:ml-auto justify-center">
               <span className="text-[#dfb871] text-xs sm:text-sm font-bold tracking-widest uppercase mb-4 block">
                 FOR CREATORS
               </span>
@@ -57,25 +108,8 @@ export default function HeroSection9() {
                     setIsModalOpen(true);
                     fetch('https://oak-server-m6hr.onrender.com/health').catch(console.error);
                   }}
-                  animate={{ 
-                    scale: [1, 1.10, 1], 
-                    boxShadow: [
-                      "0 0 0 0 rgba(223,184,113,0)", 
-                      "0 0 35px 6px rgba(223,184,113,0.55)", 
-                      "0 0 0 0 rgba(223,184,113,0)"
-                    ],
-                    borderColor: [
-                      "rgba(223,184,113,0.6)",
-                      "rgba(242,201,76,1)",
-                      "rgba(223,184,113,0.6)"
-                    ],
-                    backgroundColor: [
-                      "rgba(223,184,113,0)",
-                      "rgba(223,184,113,0.18)",
-                      "rgba(223,184,113,0)"
-                    ]
-                  }}
-                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                  animate={isBlinkingCreators ? "blinking" : "idle"}
+                  variants={blinkVariants}
                   whileHover={{ scale: 1.14 }}
                   whileTap={{ scale: 0.95 }}
                   className="flex items-center gap-4 border border-[#dfb871] bg-transparent hover:bg-[#dfb871]/20 text-[#dfb871] px-6 sm:px-8 py-3 rounded-full transition-colors duration-300 text-sm font-medium group/btn"
@@ -110,7 +144,7 @@ export default function HeroSection9() {
             </div>
 
             {/* Content (Pushed Left) */}
-            <div className="relative z-10 flex flex-col h-full w-full max-w-[320px] sm:max-w-[380px] mr-auto self-start justify-center">
+            <div className="relative z-10 flex flex-col h-full w-full max-w-[320px] sm:max-w-[380px] mr-0 sm:mr-auto justify-center">
               <span className="text-[#dfb871] text-xs sm:text-sm font-bold tracking-widest uppercase mb-4 block">
                 FOR BRANDS
               </span>
@@ -125,25 +159,8 @@ export default function HeroSection9() {
               <div>
                 <motion.button 
                   onClick={() => setIsBrandsModalOpen(true)}
-                  animate={{ 
-                    scale: [1, 1.10, 1], 
-                    boxShadow: [
-                      "0 0 0 0 rgba(223,184,113,0)", 
-                      "0 0 35px 6px rgba(223,184,113,0.55)", 
-                      "0 0 0 0 rgba(223,184,113,0)"
-                    ],
-                    borderColor: [
-                      "rgba(223,184,113,0.6)",
-                      "rgba(242,201,76,1)",
-                      "rgba(223,184,113,0.6)"
-                    ],
-                    backgroundColor: [
-                      "rgba(223,184,113,0)",
-                      "rgba(223,184,113,0.18)",
-                      "rgba(223,184,113,0)"
-                    ]
-                  }}
-                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut", delay: 0.75 }}
+                  animate={isBlinkingBrands ? "blinking" : "idle"}
+                  variants={blinkVariants}
                   whileHover={{ scale: 1.14 }}
                   whileTap={{ scale: 0.95 }}
                   className="flex items-center gap-4 border border-[#dfb871] bg-transparent hover:bg-[#dfb871]/20 text-[#dfb871] px-6 sm:px-8 py-3 rounded-full transition-colors duration-300 text-sm font-medium group/btn"

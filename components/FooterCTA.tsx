@@ -2,12 +2,51 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { Mail, MapPin, Phone } from "lucide-react";
 import AboutUsModal from "./AboutUsModal";
 
 export default function FooterCTA() {
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
+  const [isBlinkingContact, setIsBlinkingContact] = useState(false);
+
+  useEffect(() => {
+    const handleBlink = () => {
+      setTimeout(() => {
+        setIsBlinkingContact(true);
+        setTimeout(() => setIsBlinkingContact(false), 1800);
+      }, 2000);
+    };
+    window.addEventListener('blink-contact', handleBlink);
+    return () => window.removeEventListener('blink-contact', handleBlink);
+  }, []);
+
+  const blinkVariants = {
+    idle: {
+      boxShadow: "0 0 0 0 rgba(223,184,113,0)",
+      borderColor: "rgba(223,184,113,0)",
+      backgroundColor: "rgba(223,184,113,0)",
+    },
+    blinking: {
+      boxShadow: [
+        "0 0 0 0 rgba(223,184,113,0)", 
+        "0 0 30px 4px rgba(223,184,113,0.4)", 
+        "0 0 0 0 rgba(223,184,113,0)"
+      ],
+      borderColor: [
+        "rgba(223,184,113,0)",
+        "rgba(223,184,113,0.5)",
+        "rgba(223,184,113,0)"
+      ],
+      backgroundColor: [
+        "rgba(223,184,113,0)",
+        "rgba(223,184,113,0.1)",
+        "rgba(223,184,113,0)"
+      ],
+      transition: { duration: 0.9, repeat: 1, ease: "easeInOut" }
+    }
+  };
 
   const handleScroll = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -109,7 +148,7 @@ export default function FooterCTA() {
           </div>
 
           {/* Column 3: Services */}
-          <div className="col-span-1 flex flex-col px-0 lg:px-4 border-l-0 lg:border-r border-[#dfb871]/20">
+          <div className="col-span-1 hidden sm:flex flex-col px-0 lg:px-4 border-l-0 lg:border-r border-[#dfb871]/20">
             <h4 className="text-[#dfb871] font-bold text-xs tracking-widest uppercase mb-6">Services</h4>
             <div className="flex flex-col gap-4 text-sm text-white/70">
               <button onClick={() => handleScroll('services')} className="hover:text-[#dfb871] transition-colors w-fit text-left">Brand Research</button>
@@ -122,9 +161,13 @@ export default function FooterCTA() {
           </div>
 
           {/* Column 4: Contact */}
-          <div className="col-span-2 sm:col-span-1 flex flex-col px-0 lg:px-4">
-            <h4 className="text-[#dfb871] font-bold text-xs tracking-widest uppercase mb-6">Contact</h4>
-            <div className="flex flex-col gap-6 text-sm text-white/70">
+          <div className="col-span-1 flex flex-col px-0 lg:px-4">
+            <h4 className="text-[#dfb871] font-bold text-xs tracking-widest uppercase mb-4 ml-4">Contact</h4>
+            <motion.div 
+              className="flex flex-col gap-6 text-sm text-white/70 p-4 rounded-xl border border-transparent"
+              animate={isBlinkingContact ? "blinking" : "idle"}
+              variants={blinkVariants}
+            >
               
               <div className="flex gap-4 items-start">
                 <Phone className="w-5 h-5 text-[#dfb871] mt-0.5 shrink-0" />
@@ -152,7 +195,7 @@ export default function FooterCTA() {
                 <span>India <span className="text-white/30 mx-2">|</span> Global Collaborations</span>
               </div>
 
-            </div>
+            </motion.div>
           </div>
 
         </div>

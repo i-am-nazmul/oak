@@ -21,7 +21,7 @@ const brandsRow2 = [
 
 export default function HeroSection2() {
   return (
-    <section className="py-16 sm:py-24 md:py-32 bg-black overflow-hidden flex flex-col justify-center min-h-[40vh] sm:min-h-[50vh] gap-8 sm:gap-12 border-t border-white/10">
+    <section id="work" className="py-16 sm:py-24 md:py-32 bg-black overflow-hidden flex flex-col justify-center min-h-[40vh] sm:min-h-[50vh] gap-8 sm:gap-12 border-t border-white/10">
       
       <motion.div 
         initial="hidden"

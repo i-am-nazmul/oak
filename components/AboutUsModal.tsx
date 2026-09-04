@@ -201,7 +201,7 @@ export default function AboutUsModal({ isOpen, onClose }: AboutUsModalProps) {
                       <p className="text-white/60 text-xs sm:text-sm">Creators<br/>Onboarded</p>
                     </div>
                     <div>
-                      <h3 className="text-2xl sm:text-3xl font-serif text-[#dfb871] mb-2">100+</h3>
+                      <h3 className="text-2xl sm:text-3xl font-serif text-[#dfb871] mb-2">27+</h3>
                       <p className="text-white/60 text-xs sm:text-sm">Successful<br/>Campaigns</p>
                     </div>
                     <div className="col-span-2">

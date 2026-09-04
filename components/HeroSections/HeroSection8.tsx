@@ -22,7 +22,7 @@ const stats = [
   },
   {
     id: 3,
-    value: 15,
+    value: 5,
     suffix: "x",
     label: "Average ROI",
     description: "Return on investment for our clients",
@@ -79,14 +79,20 @@ export default function HeroSection8() {
       className="relative py-16 sm:py-24 md:py-36 px-4 sm:px-6 md:px-12 overflow-hidden bg-[#050505]"
     >
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      <motion.div 
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+        className="absolute inset-0 z-0"
+      >
         <img 
           src="/driving_results.png" 
           alt="Driving Results Background" 
           className="w-full h-full object-cover opacity-60"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#050505]/40 to-[#050505]" />
-      </div>
+      </motion.div>
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
