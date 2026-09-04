@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Mail, MapPin, Phone } from "lucide-react";
 import AboutUsModal from "./AboutUsModal";
 
@@ -22,7 +22,7 @@ export default function FooterCTA() {
     return () => window.removeEventListener('blink-contact', handleBlink);
   }, []);
 
-  const blinkVariants = {
+  const blinkVariants: Variants = {
     idle: {
       boxShadow: "0 0 0 0 rgba(223,184,113,0)",
       borderColor: "rgba(223,184,113,0)",
