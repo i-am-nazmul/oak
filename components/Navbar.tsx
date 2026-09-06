@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import { 
@@ -122,8 +123,12 @@ export default function Navbar() {
                     const isLast = idx === navMenuItems.length - 1;
                     return (
                       <div key={item.id}>
-                        <button
-                          onClick={() => handleScroll(item.id)}
+                        <Link
+                          href={`/#${item.id}`}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            handleScroll(item.id);
+                          }}
                           className="group flex items-center justify-between w-full px-5 sm:px-6 py-4 text-left transition-colors hover:bg-white/[0.04] cursor-pointer"
                         >
                           <div className="flex items-center gap-4 sm:gap-5">
@@ -133,7 +138,7 @@ export default function Navbar() {
                             </span>
                           </div>
                           <ArrowRight className="w-4 h-4 text-[#dfb871] group-hover:translate-x-1 transition-transform shrink-0" strokeWidth={1.8} />
-                        </button>
+                        </Link>
                         {!isLast && <div className="border-b border-white/[0.08] mx-4 sm:mx-5" />}
                       </div>
                     );
