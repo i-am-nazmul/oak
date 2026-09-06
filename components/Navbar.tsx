@@ -75,6 +75,7 @@ export default function Navbar() {
             src="/goldentree.png"
             alt="Golden Tree Logo"
             fill
+            priority
             sizes="(max-width: 640px) 48px, (max-width: 768px) 80px, 112px"
             className="object-contain"
           />
