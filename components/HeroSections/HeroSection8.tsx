@@ -14,7 +14,7 @@ const stats = [
   },
   {
     id: 2,
-    value: 27,
+    value: 60,
     suffix: "+",
     label: "Projects Completed",
     description: "Successful projects across industries",
