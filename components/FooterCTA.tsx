@@ -134,7 +134,7 @@ export default function FooterCTA() {
           </div>
 
           {/* Column 2: Explore */}
-          <div className="col-span-5 sm:col-span-1 flex flex-col px-0 lg:px-4 border-l-0 lg:border-r border-[#dfb871]/20">
+          <div className="col-span-3 sm:col-span-1 flex flex-col px-0 lg:px-4 border-l-0 lg:border-r border-[#dfb871]/20">
             <h4 className="text-[#dfb871] font-bold text-xs tracking-widest uppercase mb-6">Explore</h4>
             <div className="flex flex-col gap-4 text-sm text-white/70">
               <button onClick={() => handleScroll('home')} className="hover:text-[#dfb871] transition-colors w-fit text-left">Home</button>
@@ -161,7 +161,7 @@ export default function FooterCTA() {
           </div>
 
           {/* Column 4: Contact */}
-          <div className="col-span-7 sm:col-span-1 flex flex-col px-0 lg:px-4">
+          <div className="col-span-9 sm:col-span-1 flex flex-col px-0 lg:px-4">
             <h4 className="text-[#dfb871] font-bold text-xs tracking-widest uppercase mb-4 ml-4">Contact</h4>
             <motion.div 
               className="flex flex-col gap-6 text-sm text-white/70 p-4 rounded-xl border border-transparent"
@@ -177,7 +177,7 @@ export default function FooterCTA() {
               <div className="flex gap-4 items-start">
                 <Mail className="w-5 h-5 text-[#dfb871] mt-0.5 shrink-0" />
                 <div className="flex flex-col min-w-0">
-                  <a href="mailto:connect@creatorsoak.com" className="hover:text-[#dfb871] transition-colors truncate">connect@creatorsoak.com</a>
+                  <a href="mailto:connect@creatorsoak.com" className="hover:text-[#dfb871] transition-colors">connect@creatorsoak.com</a>
                   <span className="text-white/40 text-xs mt-1">(General Inquiries)</span>
                 </div>
               </div>
@@ -185,7 +185,7 @@ export default function FooterCTA() {
               <div className="flex gap-4 items-start">
                 <Mail className="w-5 h-5 text-[#dfb871] mt-0.5 shrink-0" />
                 <div className="flex flex-col min-w-0">
-                  <a href="mailto:business@creatorsoak.com" className="hover:text-[#dfb871] transition-colors truncate">business@creatorsoak.com</a>
+                  <a href="mailto:business@creatorsoak.com" className="hover:text-[#dfb871] transition-colors">business@creatorsoak.com</a>
                   <span className="text-white/40 text-xs mt-1">(Business Queries)</span>
                 </div>
               </div>
