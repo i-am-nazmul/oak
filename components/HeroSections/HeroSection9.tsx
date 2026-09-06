@@ -85,7 +85,7 @@ export default function HeroSection9() {
               <img 
                 src={CAMERA_IMG} 
                 alt="Camera" 
-                className="w-full h-full object-cover object-left opacity-40 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+                className="w-full h-full object-cover object-center opacity-40 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
               />
             </div>
 
@@ -139,7 +139,7 @@ export default function HeroSection9() {
               <img 
                 src={LAPTOP_IMG} 
                 alt="Laptop analytics" 
-                className="w-full h-full object-cover object-right opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+                className="w-full h-full object-cover object-center opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
               />
             </div>
 

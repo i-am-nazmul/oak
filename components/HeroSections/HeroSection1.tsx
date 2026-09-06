@@ -14,7 +14,7 @@ export default function HeroSection1() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-start sm:items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Mobile Background */}
       <video
         autoPlay
@@ -48,25 +48,25 @@ export default function HeroSection1() {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent via-[80%] to-black -z-10" />
 
       {/* Content Container */}
-      <div className="w-full px-4 sm:px-6 md:px-12 lg:px-20 relative z-10 pt-80 mt-0 sm:mt-20 sm:pt-0 md:mt-20 lg:mt-28">
+      <div className="w-full px-4 sm:px-6 md:px-12 lg:px-20 relative z-10 sm:mt-20 md:mt-20 lg:mt-28">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-4xl space-y-4 sm:space-y-5 scale-[1.5] origin-top-left sm:scale-100"
+          className="max-w-4xl space-y-4 sm:space-y-5"
         >
           {/* Heading */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[4.8rem] font-serif tracking-wide leading-none text-white">
+          <h1 className="text-5xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[4.8rem] font-serif tracking-wide leading-none text-white">
             CREATORS <br className="sm:hidden" /><span className="text-[#F2C94C] [text-shadow:0_0_30px_rgba(242,201,76,0.8),0_0_10px_rgba(242,201,76,0.5)]">OAK</span>
           </h1>
 
           {/* Subheading */}
-          <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-serif text-white/90 leading-[1.15]">
+          <h2 className="text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-serif text-white/90 leading-[1.15]">
             Curating Creators. <br className="sm:hidden" />Growing Brands.
           </h2>
 
           {/* Description */}
-          <p className="text-gray-300 max-w-[160px] sm:max-w-lg text-sm md:text-base leading-relaxed pt-1 sm:pt-2 font-medium">
+          <p className="text-gray-300 max-w-xs sm:max-w-lg text-sm md:text-base leading-relaxed pt-1 sm:pt-2 font-medium">
             We connect visionary creators with ambitious brands to build stories that inspire, engage and grow.
           </p>
 

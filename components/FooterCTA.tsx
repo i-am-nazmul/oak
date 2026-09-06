@@ -176,16 +176,16 @@ export default function FooterCTA() {
               
               <div className="flex gap-4 items-start">
                 <Mail className="w-5 h-5 text-[#dfb871] mt-0.5 shrink-0" />
-                <div className="flex flex-col">
-                  <a href="mailto:connect@creatorsoak.com" className="hover:text-[#dfb871] transition-colors">connect@creatorsoak.com</a>
+                <div className="flex flex-col min-w-0">
+                  <a href="mailto:connect@creatorsoak.com" className="hover:text-[#dfb871] transition-colors break-all">connect@creatorsoak.com</a>
                   <span className="text-white/40 text-xs mt-1">(General Inquiries)</span>
                 </div>
               </div>
 
               <div className="flex gap-4 items-start">
                 <Mail className="w-5 h-5 text-[#dfb871] mt-0.5 shrink-0" />
-                <div className="flex flex-col">
-                  <a href="mailto:business@creatorsoak.com" className="hover:text-[#dfb871] transition-colors">business@creatorsoak.com</a>
+                <div className="flex flex-col min-w-0">
+                  <a href="mailto:business@creatorsoak.com" className="hover:text-[#dfb871] transition-colors break-all">business@creatorsoak.com</a>
                   <span className="text-white/40 text-xs mt-1">(Business Queries)</span>
                 </div>
               </div>

@@ -12,7 +12,8 @@ import {
   ChevronDown, 
   ChevronUp,
   Folder,
-  Phone
+  Phone,
+  Info
 } from "lucide-react";
 import AboutUsModal from "./AboutUsModal";
 
@@ -66,25 +67,25 @@ export default function Navbar() {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
-      className="absolute top-0 left-0 right-0 px-4 sm:px-6 md:px-12 lg:px-20 flex items-center justify-between bg-transparent z-50"
+      className="absolute top-0 left-0 right-0 px-3 sm:px-6 md:px-12 lg:px-20 flex items-center justify-between bg-transparent z-50"
     >
-      <div className="flex flex-row items-center justify-center gap-2 sm:gap-4">
-        <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28 flex items-center justify-center">
+      <div className="flex flex-row items-center justify-center gap-1 sm:gap-4">
+        <div className="relative w-12 h-12 sm:w-20 sm:h-20 md:w-28 md:h-28 flex items-center justify-center shrink-0">
           <Image
             src="/goldentree.png"
             alt="Golden Tree Logo"
             fill
-            sizes="(max-width: 640px) 56px, (max-width: 768px) 80px, 112px"
+            sizes="(max-width: 640px) 48px, (max-width: 768px) 80px, 112px"
             className="object-contain"
           />
         </div>
-        <span className="font-serif text-base sm:text-xl md:text-2xl font-medium text-white tracking-widest uppercase whitespace-nowrap">Creators Oak</span>
+        <span className="font-serif text-sm sm:text-xl md:text-2xl font-medium text-white tracking-widest uppercase whitespace-nowrap">Creators Oak</span>
       </div>
 
-      <div className="flex items-center gap-4 sm:gap-8 xl:gap-12">
+      <div className="flex items-center gap-2 sm:gap-8 xl:gap-12">
         <button 
           onClick={() => setIsAboutModalOpen(true)}
-          className="hover:text-[#dfb871] transition-colors tracking-wide text-white font-sans text-base sm:text-base xl:text-lg font-medium whitespace-nowrap"
+          className="hidden sm:block hover:text-[#dfb871] transition-colors tracking-wide text-white font-sans text-base xl:text-lg font-medium whitespace-nowrap"
         >
           About Us
         </button>
@@ -92,7 +93,7 @@ export default function Navbar() {
         <div className="relative" ref={menuRef}>
           <button 
             onClick={() => setIsDesktopMenuOpen(!isDesktopMenuOpen)}
-            className="flex items-center gap-2 border border-[#dfb871]/40 hover:border-[#dfb871] bg-black/40 hover:bg-black/60 px-4 sm:px-5 py-1.5 sm:py-2 rounded-full sm:rounded-xl transition-all duration-300 text-[#dfb871] font-sans text-base sm:text-base font-medium tracking-wide shadow-sm"
+            className="flex items-center gap-2 border border-[#dfb871]/40 hover:border-[#dfb871] bg-black/40 hover:bg-black/60 px-4 sm:px-5 py-1.5 sm:py-2 rounded-md sm:rounded-lg transition-all duration-300 text-[#dfb871] font-sans text-base sm:text-base font-medium tracking-wide shadow-sm"
             aria-label="Toggle navigation menu"
           >
             <span>Menu</span>
@@ -110,9 +111,8 @@ export default function Navbar() {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: 8, scale: 0.98 }}
                 transition={{ duration: 0.2, ease: "easeOut" }}
-                className="absolute top-full mt-3 sm:mt-4 right-0 w-[130px] sm:w-[150px] bg-[#161616]/95 backdrop-blur-xl border border-[#dfb871]/50 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.8)] z-50 overflow-visible"
+                className="absolute top-full mt-3 sm:mt-4 right-0 w-[170px] sm:w-[190px] bg-[#161616]/95 backdrop-blur-xl border border-[#dfb871]/50 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.8)] z-50 overflow-visible"
               >
-                {/* Golden accent bar on top border */}
                 <div className="absolute -top-[2px] right-6 sm:right-8 w-12 h-[3px] bg-[#dfb871] rounded-full shadow-[0_0_8px_rgba(223,184,113,0.7)]" />
 
                 <div className="flex flex-col py-1 overflow-hidden rounded-2xl">
@@ -127,7 +127,7 @@ export default function Navbar() {
                         >
                           <div className="flex items-center gap-4 sm:gap-5">
                             <Icon className="w-5 h-5 text-[#dfb871] shrink-0" strokeWidth={1.7} />
-                            <span className="text-white font-sans text-sm sm:text-base font-medium tracking-wide group-hover:text-[#dfb871] transition-colors">
+                            <span className="text-white font-sans text-sm sm:text-base font-medium tracking-wide group-hover:text-[#dfb871] transition-colors whitespace-nowrap">
                               {item.label}
                             </span>
                           </div>
@@ -137,6 +137,25 @@ export default function Navbar() {
                       </div>
                     );
                   })}
+                  {/* About Us - only visible on mobile since the button is hidden */}
+                  <div className="sm:hidden">
+                    <div className="border-b border-white/[0.08] mx-4 sm:mx-5" />
+                    <button
+                      onClick={() => {
+                        setIsDesktopMenuOpen(false);
+                        setIsAboutModalOpen(true);
+                      }}
+                      className="group flex items-center justify-between w-full px-5 py-4 text-left transition-colors hover:bg-white/[0.04] cursor-pointer"
+                    >
+                      <div className="flex items-center gap-4">
+                        <Info className="w-5 h-5 text-[#dfb871] shrink-0" strokeWidth={1.7} />
+                        <span className="text-white font-sans text-sm font-medium tracking-wide group-hover:text-[#dfb871] transition-colors whitespace-nowrap">
+                          About Us
+                        </span>
+                      </div>
+                      <ArrowRight className="w-4 h-4 text-[#dfb871] group-hover:translate-x-1 transition-transform shrink-0" strokeWidth={1.8} />
+                    </button>
+                  </div>
                 </div>
               </motion.div>
             )}
