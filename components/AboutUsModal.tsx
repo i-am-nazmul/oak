@@ -197,7 +197,7 @@ export default function AboutUsModal({ isOpen, onClose }: AboutUsModalProps) {
                   
                   <div className="grid grid-cols-2 gap-y-8 gap-x-4">
                     <div>
-                      <h3 className="text-2xl sm:text-3xl font-serif text-[#dfb871] mb-2">700+</h3>
+                      <h3 className="text-2xl sm:text-3xl font-serif text-[#dfb871] mb-2">5000+</h3>
                       <p className="text-white/60 text-xs sm:text-sm">Creators<br/>Onboarded</p>
                     </div>
                     <div>
