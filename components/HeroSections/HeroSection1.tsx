@@ -23,13 +23,6 @@ export default function HeroSection1() {
         fetchPriority="high"
         loading="eager"
       />
-      <img
-        src="/desktop_bg_poster.webp"
-        alt="Creators Oak Desktop Background"
-        className="hidden md:block absolute inset-0 w-full h-full object-cover object-[15%_top] mobile-pan-video -z-20 pointer-events-none"
-        fetchPriority="high"
-        loading="eager"
-      />
 
       {/* Mobile Background Video */}
       <video
@@ -44,15 +37,13 @@ export default function HeroSection1() {
         <source src="/mobile_bg.mp4" type="video/mp4" />
       </video>
 
-      {/* Desktop Background Video */}
+      {/* Desktop Background */}
       <video
         ref={videoRef}
         autoPlay
         loop
         muted
         playsInline
-        preload="auto"
-        poster="/desktop_bg_poster.webp"
         className="hidden md:block absolute inset-0 w-full h-full object-cover object-[15%_top] mobile-pan-video -z-10"
       >
         <source src="/newbg.mp4" type="video/mp4" />
