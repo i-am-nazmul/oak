@@ -106,7 +106,7 @@ export default function HeroSection9() {
                 <motion.button 
                   onClick={() => {
                     setIsModalOpen(true);
-                    fetch('https://oak-server-m6hr.onrender.com/health').catch(console.error);
+                    fetch('https://oak-server-m6hr.onrender.com/health').catch(() => {});
                   }}
                   animate={isBlinkingCreators ? "blinking" : "idle"}
                   variants={blinkVariants}

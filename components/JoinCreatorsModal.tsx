@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Loader2 } from "lucide-react";
+import { X, Loader2, Check } from "lucide-react";
 import { useEffect, useState } from "react";
 
 interface JoinCreatorsModalProps {
@@ -11,11 +11,15 @@ interface JoinCreatorsModalProps {
 
 export default function JoinCreatorsModal({ isOpen, onClose }: JoinCreatorsModalProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [isSuccess, setIsSuccess] = useState(false);
 
-  // Prevent scrolling when modal is open
+  // Prevent scrolling when modal is open and reset states
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
+      setErrorMessage(null);
+      setIsSuccess(false);
     } else {
       document.body.style.overflow = "unset";
     }
@@ -63,36 +67,61 @@ export default function JoinCreatorsModal({ isOpen, onClose }: JoinCreatorsModal
               </p>
             </div>
 
-            {/* Form */}
+            {/* Body */}
             <div className="overflow-y-auto px-8 pb-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-              <form className="space-y-5" onSubmit={async (e) => {
-                e.preventDefault();
-                setIsSubmitting(true);
-                const formData = new FormData(e.currentTarget);
-                const data = Object.fromEntries(formData.entries());
-                
-                try {
-                  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-                  const response = await fetch(`${apiUrl}/api/creators`, {
-                    method: 'POST',
-                    headers: {
-                      'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data),
-                  });
-                  if (response.ok) {
-                    onClose();
-                  } else {
-                    console.error('Failed to submit');
+              {isSuccess ? (
+                <div className="text-center py-10 px-4">
+                  <div className="w-16 h-16 bg-[#dfb871]/10 rounded-full flex items-center justify-center mx-auto mb-4 border border-[#dfb871]/30">
+                    <Check className="w-8 h-8 text-[#dfb871]" />
+                  </div>
+                  <h3 className="text-2xl font-serif text-white mb-2">Application Submitted!</h3>
+                  <p className="text-white/60 text-sm mb-6 max-w-sm mx-auto">
+                    Thank you for applying. We've received your details and our team will get in touch with you shortly.
+                  </p>
+                  <button
+                    onClick={onClose}
+                    className="px-6 py-2.5 bg-[#dfb871] hover:bg-[#c9a55e] text-black font-semibold rounded-md transition-colors"
+                  >
+                    Close
+                  </button>
+                </div>
+              ) : (
+                <form className="space-y-5" onSubmit={async (e) => {
+                  e.preventDefault();
+                  setIsSubmitting(true);
+                  setErrorMessage(null);
+                  const formData = new FormData(e.currentTarget);
+                  const data = Object.fromEntries(formData.entries());
+                  
+                  try {
+                    const response = await fetch('/api/creators', {
+                      method: 'POST',
+                      headers: {
+                        'Content-Type': 'application/json',
+                      },
+                      body: JSON.stringify(data),
+                    });
+                    const resData = await response.json().catch(() => null);
+
+                    if (response.ok) {
+                      setIsSuccess(true);
+                    } else {
+                      setErrorMessage(resData?.message || 'Failed to submit application. Please try again.');
+                    }
+                  } catch {
+                    setErrorMessage('Unable to connect to server. Please try again.');
+                  } finally {
+                    setIsSubmitting(false);
                   }
-                } catch (error) {
-                  console.error('Error submitting form:', error);
-                } finally {
-                  setIsSubmitting(false);
-                }
-              }}>
-                {/* Full Name */}
-                <div>
+                }}>
+                  {errorMessage && (
+                    <div className="p-3 bg-red-500/10 border border-red-500/30 rounded-md text-red-400 text-xs">
+                      {errorMessage}
+                    </div>
+                  )}
+
+                  {/* Full Name */}
+                  <div>
                   <label className="block text-white/80 text-xs font-medium mb-2">Full Name</label>
                   <input
                     type="text"
@@ -183,8 +212,8 @@ export default function JoinCreatorsModal({ isOpen, onClose }: JoinCreatorsModal
                 <div>
                   <label className="block text-white/80 text-xs font-medium mb-2">What Niche Do You Create Content In?</label>
                   <div className="relative">
-                    <select name="niche" className="w-full bg-[#111] border border-white/10 rounded-md px-4 py-3 text-white text-sm focus:outline-none focus:border-[#dfb871]/50 focus:ring-1 focus:ring-[#dfb871]/50 transition-all appearance-none outline-none">
-                      <option value="" disabled defaultValue="">Choose your niche</option>
+                    <select name="niche" required defaultValue="" className="w-full bg-[#111] border border-white/10 rounded-md px-4 py-3 text-white text-sm focus:outline-none focus:border-[#dfb871]/50 focus:ring-1 focus:ring-[#dfb871]/50 transition-all appearance-none outline-none">
+                      <option value="" disabled>Choose your niche</option>
                       <option value="fashion">Fashion & Beauty</option>
                       <option value="tech">Technology</option>
                       <option value="lifestyle">Lifestyle & Vlogs</option>
@@ -230,8 +259,9 @@ export default function JoinCreatorsModal({ isOpen, onClose }: JoinCreatorsModal
                   </button>
                 </div>
               </form>
-            </div>
-          </motion.div>
+            )}
+          </div>
+        </motion.div>
         </div>
       )}
     </AnimatePresence>

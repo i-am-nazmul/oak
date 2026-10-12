@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Loader2 } from "lucide-react";
+import { X, Loader2, Check } from "lucide-react";
 import { useEffect, useState } from "react";
 
 interface JoinBrandsModalProps {
@@ -11,11 +11,15 @@ interface JoinBrandsModalProps {
 
 export default function JoinBrandsModal({ isOpen, onClose }: JoinBrandsModalProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   // Prevent scrolling when modal is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
+      setErrorMessage(null);
+      setIsSuccess(false);
     } else {
       document.body.style.overflow = "unset";
     }
@@ -63,34 +67,58 @@ export default function JoinBrandsModal({ isOpen, onClose }: JoinBrandsModalProp
               </p>
             </div>
 
-            {/* Form */}
+            {/* Body */}
             <div className="overflow-y-auto px-8 pb-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-              <form className="space-y-5" onSubmit={async (e) => {
-                e.preventDefault();
-                setIsSubmitting(true);
-                const formData = new FormData(e.currentTarget);
-                const data = Object.fromEntries(formData.entries());
-                
-                try {
-                  const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://oak-server-m6hr.onrender.com';
-                  const response = await fetch(`${apiUrl}/api/brands`, {
-                    method: 'POST',
-                    headers: {
-                      'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data),
-                  });
-                  if (response.ok) {
-                    onClose();
-                  } else {
-                    console.error('Failed to submit');
+              {isSuccess ? (
+                <div className="text-center py-10 px-4">
+                  <div className="w-16 h-16 bg-[#dfb871]/10 rounded-full flex items-center justify-center mx-auto mb-4 border border-[#dfb871]/30">
+                    <Check className="w-8 h-8 text-[#dfb871]" />
+                  </div>
+                  <h3 className="text-2xl font-serif text-white mb-2">Request Submitted!</h3>
+                  <p className="text-white/60 text-sm mb-6 max-w-sm mx-auto">
+                    Thank you for reaching out. We've received your brand details and our team will get in touch shortly.
+                  </p>
+                  <button
+                    onClick={onClose}
+                    className="px-6 py-2.5 bg-[#dfb871] hover:bg-[#c9a55e] text-black font-semibold rounded-md transition-colors"
+                  >
+                    Close
+                  </button>
+                </div>
+              ) : (
+                <form className="space-y-5" onSubmit={async (e) => {
+                  e.preventDefault();
+                  setIsSubmitting(true);
+                  setErrorMessage(null);
+                  const formData = new FormData(e.currentTarget);
+                  const data = Object.fromEntries(formData.entries());
+                  
+                  try {
+                    const response = await fetch('/api/brands', {
+                      method: 'POST',
+                      headers: {
+                        'Content-Type': 'application/json',
+                      },
+                      body: JSON.stringify(data),
+                    });
+                    const resData = await response.json().catch(() => null);
+
+                    if (response.ok) {
+                      setIsSuccess(true);
+                    } else {
+                      setErrorMessage(resData?.message || 'Failed to submit. Please try again.');
+                    }
+                  } catch {
+                    setErrorMessage('Unable to connect to server. Please try again.');
+                  } finally {
+                    setIsSubmitting(false);
                   }
-                } catch (error) {
-                  console.error('Error submitting form:', error);
-                } finally {
-                  setIsSubmitting(false);
-                }
-              }}>
+                }}>
+                  {errorMessage && (
+                    <div className="p-3 bg-red-500/10 border border-red-500/30 rounded-md text-red-400 text-xs">
+                      {errorMessage}
+                    </div>
+                  )}
                 {/* Name */}
                 <div>
                   <label className="block text-white/80 text-xs font-medium mb-2">Your Name</label>
@@ -202,8 +230,9 @@ export default function JoinBrandsModal({ isOpen, onClose }: JoinBrandsModalProp
                   </button>
                 </div>
               </form>
-            </div>
-          </motion.div>
+            )}
+          </div>
+        </motion.div>
         </div>
       )}
     </AnimatePresence>
