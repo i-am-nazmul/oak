@@ -14,25 +14,45 @@ export default function HeroSection1() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Mobile Background */}
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-[#0A0D0B]">
+      {/* Instant Poster Placeholders (Render in <100ms, eliminates initial blank/grey state) */}
+      <img
+        src="/mobile_bg_poster.webp"
+        alt="Creators Oak Mobile Background"
+        className="md:hidden absolute inset-0 w-full h-full object-cover object-left -z-20 pointer-events-none"
+        fetchPriority="high"
+        loading="eager"
+      />
+      <img
+        src="/desktop_bg_poster.webp"
+        alt="Creators Oak Desktop Background"
+        className="hidden md:block absolute inset-0 w-full h-full object-cover object-[15%_top] mobile-pan-video -z-20 pointer-events-none"
+        fetchPriority="high"
+        loading="eager"
+      />
+
+      {/* Mobile Background Video */}
       <video
         autoPlay
         loop
         muted
         playsInline
+        preload="auto"
+        poster="/mobile_bg_poster.webp"
         className="md:hidden absolute inset-0 w-full h-full object-cover object-left -z-10"
       >
         <source src="/mobile_bg.mp4" type="video/mp4" />
       </video>
 
-      {/* Desktop Background */}
+      {/* Desktop Background Video */}
       <video
         ref={videoRef}
         autoPlay
         loop
         muted
         playsInline
+        preload="auto"
+        poster="/desktop_bg_poster.webp"
         className="hidden md:block absolute inset-0 w-full h-full object-cover object-[15%_top] mobile-pan-video -z-10"
       >
         <source src="/newbg.mp4" type="video/mp4" />
