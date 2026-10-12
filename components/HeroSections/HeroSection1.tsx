@@ -14,7 +14,7 @@ export default function HeroSection1() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-[#0A0D0B]">
+    <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Instant Poster Placeholders (Render in <100ms, eliminates initial blank/grey state) */}
       <img
         src="/mobile_bg_poster.webp"
